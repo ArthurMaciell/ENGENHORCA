@@ -1,0 +1,18 @@
+# Document parsing
+unstructured[all-docs]
+lxml
+pillow
+python-magic-bin
+
+# LangChain + RAG
+langchain
+langchain-community
+langchain-openai
+langchain-groq
+
+# Vector DB and tokenizer
+chromadb
+tiktoken
+
+# Environment management
+python-dotenv
