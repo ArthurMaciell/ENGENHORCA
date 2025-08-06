@@ -3,6 +3,7 @@ unstructured[all-docs]
 lxml
 pillow
 python-magic-bin
+pytesseract
 
 # LangChain + RAG
 langchain
