@@ -10,6 +10,7 @@ langchain
 langchain-community
 langchain-openai
 langchain-groq
+huggingface_hub[hf_xet]
 
 # Vector DB and tokenizer
 chromadb

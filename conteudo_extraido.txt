@@ -1,0 +1,1822 @@
+PROJETO DE GRADUAÇÃO 1
+
+Projeto de Melhoria do Sistema de Exaustão para o Restaurante Universitário da UnB
+
+Arthur da Silva Maciel
+
+Brasília, Julho de 2025
+
+UNIVERSIDADE DE BRASÍLIA
+
+FACULDADE DE TECNOLOGIA
+
+UNIVERSIDADE DE BRASÍLIA
+
+Faculdade de Tecnologia
+
+Departamento de Engenharia Mecânica
+
+PROJETO DE GRADUAÇÃO 1
+
+Projeto de Melhoria do Sistema de Exaustão para o Restaurante Universitário da UnB
+
+Arthur da Silva Maciel
+
+Projeto de Graduação 1 submetido ao Departamento de Engenharia
+
+Mecânica como requisito parcial para obtenção
+
+do grau de Engenheiro em Engenharia Mecânica
+
+Banca Examinadora
+
+Prof. Dr. João Manoel Dias Pimenta, ENM/UnB Orientador
+
+Prof. Dr. Mario Benjamin Baptista de Siqueira,
+
+ENM/UnB Examinador interno
+
+Prof. Dr. Edgar Amaral Silveira, ENM/UnB
+
+Examinador interno
+
+FICHA CATALOGRÁFICA
+
+MACIEL, ARTHUR DA SILVA
+
+Projeto de Melhoria do Sistema de Exaustão para o Restaurante Universitário da UnB [Distrito Federal] 2025.
+
+xvi, 68 p., 210 x 297 mm (EFL/FT/UnB, Engenheiro, Engenharia Mecânica, 2025).
+
+Projeto de Graduação 1 - Universidade de Brasília, Faculdade de Tecnologia.
+
+Departamento de Engenharia Mecânica
+
+1. Ventilação
+
+2. Conforto térmico
+
+3. Restaurante Universitário
+
+4. Renovação do ar
+
+5. Projeto de climatização
+
+6. Exaustão mecânica
+
+I. EFL/FT/UnB
+
+II. Título (série)
+
+REFERÊNCIA BIBLIOGRÁFICA
+
+MACIEL, A.S. (2025). Projeto de Melhoria do Sistema de Exaustão para o Restaurante Universitário da UnB. Projeto de Graduação 1, Departamento de Engenharia Mecânica, Universidade de Brasília, Brasília, DF, 68 p.
+
+CESSÃO DE DIREITOS
+
+AUTOR: Arthur da Silva Maciel &
+
+TÍTULO: Projeto de Melhoria do Sistema de Exaustão para o Restaurante Universitário da UnB.
+
+GRAU: Engenheiro em Engenharia Mecânica ANO: 2025
+
+É concedida à Universidade de Brasília permissão para reproduzir cópias deste Projeto Final de Graduação e para emprestar ou vender tais cópias somente para propósitos acadêmicos e científicos. O autor reserva outros direitos de publicação e nenhuma parte desse Projeto Final de Graduação pode ser reproduzida sem autorização por escrito do autor.
+
+Arthur da Silva Maciel
+
+Depto. de Engenharia Mecânica (ENM) - FT
+
+Universidade de Brasília (UnB)
+
+Campus Darcy Ribeiro
+
+CEP 70670-401 - Brasília - DF - Brasil
+
+Agradecimentos
+
+Gostaria de, primeiramente, dedicar este trabalho a Universidade de Brasília, insti- tuição que foi fundamental para meu desenvolvimento, proporcionando aprendizados valiosos tanto no campo técnico quanto no pessoal.
+
+Agradeço profundamente à minha família e aos professores que me acompanharam ao longo da jornada, contribuindo de forma significativa para minha formação como profissional. O apoio, a orientação e o incentivo constantes foram essenciais para enfrentar os desafios do curso de Engenharia Mecânica.
+
+Estendo meus agradecimentos à empresa em que trabalho, pela disponibilização dos instrumentos utilizados nas medições experimentais deste projeto, o que foi crucial para a execução prática do estudo.
+
+Arthur da Silva Maciel
+
+RESUMO
+
+Este Projeto de Graduação tem como objetivo avaliar as condições de conforto térmico do Restaurante Universitário da Universidade de Brasília, levantando dados com medições experi- mentas e da percepção dos usuários. O local, é frequentemente alvo de reclamações de umidade, desconforto físico e temperatura. Foi utilizado instrumentos de medição como câmera térmica FLIR, termômetro infravermelho, e sensores de dióxido de carbono e umidade relativa. Foi feita uma pesquisa com os alunos e colaboradores por meio do Google Forms utilizando QRCode para entender a percepção de diferentes pontos do refeitório. A análise dos dados objetivos e subjeti- vos permitiu identificar os principais fatores de desconforto térmico, relacionados ao horário de uso, frequência de permanência e gênero dos usuários. Os resultados indicam a necessidade de melhorias no sistema de ventilação e exaustão, especialmente nas áreas próximas à ilha de banho- maria. O trabalho está fundamentado em normas técnicas nacionais e internacionais de conforto térmico e propõe diretrizes iniciais para soluções mais eficientes e adequadas ao uso coletivo do espaço.
+
+ABSTRACT
+
+This Graduation Project aims to evaluate the thermal comfort conditions of the University Restaurant at the University of Brasília, based on experimental measurements and user percep- tion. The facility is frequently the target of complaints regarding humidity, physical discomfort, and high temperatures. Measurement instruments such as a FLIR thermal camera, infrared ther- mometer, and carbon dioxide and relative humidity sensors were used to collect objective data. In parallel, a survey was conducted with students and staff through Google Forms accessed via QR Code, in order to understand the perception of different areas within the dining hall. The analysis of both objective and subjective data allowed the identification of key thermal discomfort factors, related to usage time, frequency of attendance, and user gender. The results highlight the need for improvements in the ventilation and exhaust system, especially in areas close to the bain-marie station. This study is grounded in national and international technical standards for thermal com- fort and proposes initial guidelines for more efficient and suitable solutions for collective use of the space.
+
+SUMÁRIO
+
+1 INTRODUÇÃO ................................................................... 1.1 O TEMA EM ESTUDO E SUA RELEVÂNCIA ..................................... 1.2 REVISÃO ......................................................................... 1.2.1 NORMAS ......................................................................... 1.2.2 PROJETOS EMBLEMÁTICOS .................................................... 1.3 OBJETIVOS....................................................................... 1.4 METODOLOGIA .................................................................. 1.5 ESTRUTURA DO TRABALHO.................................................... 2 VENTILAÇÃO REVISÃO GERAL.................................................. 7 2.1 AR INTERNO ..................................................................... 2.2 AR EXTERNO .................................................................... 2.3 VENTILAÇÃO ..................................................................... 2.4 VENTILAÇÃO DILUIDORA ....................................................... 2.5 VENTILAÇÃO LOCAL EXAUSTORA ............................................. 2.6 VENTILAÇÃO NATURAL X VENTILAÇÃO MECÂNICA.......................... 10 3 CONFORTO TÉRMICO REVISÃO GERAL ......................................... 12 3.1 CONCEITO DE CONFORTO TÉRMICO ......................................... 12 3.2 INFLUÊNCIA DA VENTILAÇÃO NO CONFORTO TÉRMICO .................... 12 3.3 FATORES QUE INFLUENCIAM O CONFORTO TÉRMICO....................... 13 3.4 CONFORTO TÉRMICO ADAPTATIVO ............................................ 14 4 ESTUDO DE CASO .............................................................. 16 4.1 CARACTERIZAÇÃO DO AMBIENTE ............................................. 16 4.2 METODOLOGIA DA PESQUISA DE SATISFAÇÃO .............................. 26 4.3 RESULTADOS DA PESQUISA DE SATISFAÇÃO ................................ 29 4.4 COMENTÁRIOS ABERTOS DOS USUÁRIOS.................................... 37 4.5 INSTRUMENTAÇÃO .............................................................. 39 5 RESULTADOS PRELIMINARES................................................... 41 5.1 MEDIÇÕES DE CO2 ............................................................. 41 5.2 DIFERENÇA DE TEMPERATURA ................................................ 42 5.3 CONFORTO ADAPTATIVO........................................................ 43 1 1 3 3 4 4 5 6 7 7 8 8 9
+
+REFERÊNCIAS BIBLIOGRÁFICAS............................................. 45
+
+ANEXOS ........................................................................... 47
+
+vii
+
+I ANEXO I - FLAYER PARA QUESTIONÁRIO DA AVALIAÇÃO DO CONFORTO TÉR-
+
+MICO ........................................................................... 48
+
+II ANEXO III - CÓDIGO DESENVOLVIDO PARA O PROJETO ........................ 49
+
+LISTA DE FIGURAS
+
+2.1 Ventilação Diluidora Natural........................................................................ 2.2 Ventilação Diluidora Forçada ....................................................................... 2.3 Ventilação Local Exaustora.......................................................................... 10 3.1 Conforto Térmico Adaptativo....................................................................... 15 4.1 Restaurante Universitário da UnB ................................................................. 16 4.2 Parte Interna do RU .................................................................................... 17 4.3 Áreas RU.................................................................................................. 17 4.4 Parte Interna refeitório ................................................................................ 18 4.5 Parte Interna refeitório câmera térmica........................................................... 18 4.6 Parte fria Interna refeitório........................................................................... 19 4.7 Parte fria Interna refeitório câmera térmica ..................................................... 19 4.8 Parte Externa do RU ................................................................................... 20 4.9 Parte Externa Inferior do RU........................................................................ 20 4.10 Parte Externa Superior do RU....................................................................... 21 4.11 Parte Externa lado L2 Sul ............................................................................ 21 4.12 Banho-maria ............................................................................................. 22 4.13 Vidro Banho-Maria .................................................................................... 22 4.14 Ilha de Banho-Maria................................................................................... 23 4.15 Banho-Maria câmera térmica ....................................................................... 23 4.16 Área de distribuição de comida..................................................................... 24 4.17 Máquina de Suco ....................................................................................... 24 4.18 Área de lavagem ........................................................................................ 25 4.19 Ventilador Área de lavagem ......................................................................... 25 4.20 Vapor da Cozinha RU ................................................................................. 26 4.21 Exaustores da cozinha RU ........................................................................... 26 4.22 Frequência das Idades................................................................................. 30 4.23 Frequência de Uso do RU ............................................................................ 30 4.24 Gênero x Desconforto Físico........................................................................ 31 4.25 Frequência de Ambiente Abafado ................................................................. 31 4.26 Frequência x Abafamento............................................................................ 32 4.27 Horário x Desconforto físico ........................................................................ 33 4.28 Gênero X Avaliação da Temperatura.............................................................. 33 4.29 Gênero x Sensação de Abafamento................................................................ 34
+
+4.30 Gráfico do Odores x Frequência.................................................................... 35
+
+4.31 Gráfico do Odores x Horário de Uso.............................................................. 35
+
+4.32 Horário x Avaliação Temperatura.................................................................. 36
+
+ix
+
+9
+
+9
+
+4.33 Horário x Desconforto Físico ....................................................................... 36 4.34 Horário x Horário de Pico............................................................................ 37 4.35 Horário x Desconforto Físico ....................................................................... 40 5.1 Conforto Adaptativo médio.......................................................................... 44 I.1 Flayer para respostas .................................................................................. 48
+
+LISTA DE TABELAS
+
+4.1 Perguntas do Formulário.............................................................................. 28 4.2 Perguntas do Formulário.............................................................................. 29 5.1 Quantidade de Pessoas ................................................................................ 41 5.2 Medições de CO2....................................................................................... 41 5.3 Temperatura Restaurante 2........................................................................... 42
+
+xi
+
+1 INTRODUÇÃO
+
+1.1 O TEMA EM ESTUDO E SUA RELEVÂNCIA
+
+O presente trabalho tem como objetivo idealizar o projeto de melhoria do sistema de exaustão do Restaurante Universitário de Brasília (UnB), localizado no campus Darcy Ribeiro. O Restau- rante Universitário apresenta condições inadequadas de ventilação , o que faz com que os alunos e funcionários presentes se sintam desconfortáveis. Isso é causado principalmente pela má circu- lação do ar presente na sala, que está constantemente se tornando mais úmido devido à ilha de banho-maria em frente à cozinha e ao grande tráfego de alunos da universidade.
+
+Garantir boas condições de ventilação e conforto térmico em ambientes fechados é um dos desafios recorrentes da engenharia, principalmente para locais de alta circulação de pessoas como restaurantes universitários. Os sistemas responsáveis por promover tais condições são o sistema de ventilação e de exaustão, tendo destaque em garantir a renovação do ar, a remoção de poluentes e o controle de umidade e temperatura.
+
+As pessoas gastam mais de 90% de sua vida diária em ambientes internos, seja dentro de es- colas, universidades, casas e edifícios comerciais, industriais ou residenciais (Datta et al. (2017)). Logo, a qualidade do ar interior tornou-se uma questão importante no cenário mundial, pois o de- senvolvimento tecnológico de janelas térmicas e a implementação de construções cada vez mais eficientes energeticamente, proporcionam ambientes vedados, que podem aumentar a concentra- ção de poluentes (Spiru e Paraschiv (2017)).
+
+Consequentemente, a saúde, o conforto e o desempenho de atividades mentais e físicas de usuários desses espaços são fortemente comprometidos (BRANCO et al., 2019), principalmente para os indivíduos pertencentes ao grupo de risco, que inclui, crianças, gestantes, idosos e porta- dores de doenças crônicas (GLOBAL HEALTH METRICS, 2017).
+
+Mais um ponto a se destacar, segundo Almeida e Sousa (2021), é que uma das principais es- tratégias para mitigar o risco de transmissão de doenças como a COVID-19, que afetou profunda- mente todo o mundo, envolve soluções baseadas em ventilação adequada. Entre essas estratégias, destacam-se a renovação de ar proveniente do exterior por meio de ventilação natural ou mecâ- nica a fim de diluir o ar interno e expulsar agentes infecciosos, e considerando que a utilização de filtros do tipo HEPA raramente estão presentes em instalações convencionais.
+
+O Restaurante Universitário da Universidade de Brasília representa uma das principais uni- dades de apoio estudantil da instituição. Ele é responsável por alimentar diariamente milhares de estudantes, sendo essencial para a permanência e bem-estar de uma parte considerável desses alunos. Apesar disso, nota-se que o restaurante funciona sem um sistema de exaustão eficiente, contando apenas com pequenas janelas e um ou dois ventiladores por restaurante para promover a ventilação no ambiente. Juntamente com isso, a presença da ilha de aquecimento, conhecida
+
+1
+
+como banho-maria, gera acúmulo de vapor, aumentando a temperatura e a sensação constante de abafamento no interior do ambiente.
+
+Todas as Instituições Federais de Ensino Superior (IFES) do Brasil, desde 2010, dispõem de recursos que preveem verbas para subsidiar estudantes em vulnerabilidade socioeconômica, de forma a garantir sua permanência e diplomação (SANTOS, 2016).
+
+No Decreto n° 7.234 da Constituição Federal, identifica-se a alimentação como atribuição da assistência estudantil. Portanto, as IFES têm um papel altamente relevante no desenvolvimento econômico e social do país e assim, desenvolvem diversas ações no apoio à comunidade aca- dêmica para difusão do conhecimento científico, sendo uma delas os restaurantes universitários (RU) (VARELA et al., 2015).
+
+Dessa maneira, os RU’s são estruturas fundamentais e presentes na parte construída de quais- quer IFES, pois fornecem refeições saudáveis e de baixo custo para estudantes, técnicos adminis- trativos e demais integrantes da comunidade acadêmica.
+
+A ausência de um sistema de ventilação mecânica adequada ocasiona uma série de impactos negativos. Do ponto de vista do conforto térmico, o acúmulo de vapor aquece o ar ambiente e dificulta a permanência prolongada no espaço.
+
+Para os alunos isso representa um ambiente insalubre e desgastante, o que pode afetar o de- sempenho dos universitários. Considerando a saúde pública, a alta umidade relativa e a presença de vapores condensáveis podem favorecer a proliferação de fungos e bactérias, além de compro- meter a integridade estrutural de equipamentos e revestimentos internos.
+
+Além do impacto direto sobre a experiência dos estudantes e a saúde ocupacional, a situação no RU da UnB levanta uma oportunidade de intervenção técnica e acadêmica. A ausência de exaustão é um problema concreto, observável e que pode ser resolvido com base em critérios normativos e princípios da engenharia mecânica. Ao propor uma solução para esse problema, o presente Projeto de Graduação busca aplicar conhecimentos adquiridos ao longo do curso, tais como termodinâmica, transferência de calor, mecânica dos fluidos e instalações mecânicas.
+
+A relevância e a escolha desse tema se alinha com o propósito de realizar um projeto com impacto real, não apenas acadêmico. Ao realizar um estudo técnico e detalhado para melhorar a exaustão do RU da UnB, pretende-se dar um panorama total da situação do restaurante e, assim, trazer benefícios à comunidade acadêmica e, consequentemente, à sociedade.
+
+Além disso, Gouveia et al. (2020) afirma que as pessoas estão cada vez mais com tempo limitado devido às inúmeras responsabilidades adquiridas, e que o antigo hábito de fazer todas as refeições em casa vem se tornado algo raro. A busca pela praticidade juntamente com a grande quantidade de atividades e a distância entre o local de estudo ou trabalho e a residência fez com que as pessoas mudassem de hábitos alimentares, estando bem mais presentes em restaurantes fora de casa.
+
+Sendo assim, observa-se que grande parte dos estudantes de universidades possui cargas ho- rárias extensas e muitas vezes moram longe da faculdade. E acabam optando por se alimentar
+
+2
+
+no RU, sendo necessário dar condições apropriadas para que assim consigam ter o seu melhor desempenho acadêmico.
+
+Diante disso, este projeto de graduação visa desenvolver uma solução técnica e viável, se- guindo as normas vigentes, favorecendo não apenas o conforto térmico e a qualidade do ar, mas também contribuindo para a permanência estudantil e valorizando as unidades de apoio da Uni- versidade como o RU.
+
+1.2 REVISÃO
+
+1.2.1 Normas
+
+Para desenvolver um bom projeto de ventilação e exaustão é necessário atender a critérios es- tabelecidos por normas criadas pelos órgãos governamentais responsáveis pela área. Tais órgãos têm o trabalho de criar medidas que garantem a saúde e bem-estar da população. No caso de pro- jeto de ventilação e exaustão essas normas asseguram condições mínimas de conforto, segurança e salubridade nos ambientes internos.
+
+Para o caso específico, Restaurante Universtiário da UnB as principais normas que são refe- rências normativas são a NBR 14518, a NBR 16401 e a Resolução RDC nº 275/2002 da ANVISA. Sendo a ABNT NBR 14518:2022 uma norma para sistemas de exaustão para Cozinhas profissio- nais o que é o caso do RU da UnB mas nesse projeto não trataremos dessa parte, já que as cozinhas do restaurante possuem um sistema adequado. Sendo principalmente necessária a exaustão nos ambientes onde há movimentação de alunos e onde esses fazem suas refeições.
+
+A ABNT NBR 16401 é dividida em três partes que regem as instalações de ar-condicionado para conforto térmico. A Parte 1 trata dos requisitos gerais de projeto; a Parte 2 apresenta os parâmetros de desempenho para sistemas centrais e unitários e a Parte 3 define os critérios de qualidade do ar interior. Esta última parte é especialmente relevante para ambientes onde há per- manência prolongada de pessoas, estabelecendo valores recomendados para temperatura, umi- dade relativa e taxa de renovação do ar.
+
+Do ponto de vista sanitário, a Resolução RDC nº 275/2002 da ANVISA dispõe sobre o re- gulamento técnico de boas práticas para serviços de alimentação. Entre outros pontos, ela exige que as áreas de manipulação de alimentos possuam ventilação suficiente para garantir conforto térmico e evitar o acúmulo de vapores, gases e odores, além de prevenir a formação de mofo, condensação e outros agentes que possam comprometer a segurança dos alimentos.
+
+O cumprimento dessas normas é essencial para assegurar que o ambiente de preparo e con- sumo de refeições esteja em conformidade com os princípios de higiene, ergonomia e segurança do trabalho. Além disso, projetos que seguem essas diretrizes tendem a apresentar melhor desem- penho técnico e menor custo de manutenção no longo prazo.
+
+3
+
+1.2.2 Projetos Emblemáticos
+
+Estudar e compreender projetos já realizados em Restaurantes Universitários é essencial para fazer um bom projeto de ventilação, já que assim é possível entender os desafios técnicos e pos- síveis soluções. Esses estudos servem como referência tanto do ponto de vista técnico quanto normativo, contribuindo para a fundamentação do presente trabalho.
+
+Um exemplo notável é o projeto realizado no Centro Federal de Educação Tecnológica do Rio de Janeiro (CEFET/RJ), onde foi desenvolvido um sistema de ar-condicionado central do tipo VRV (Volume de Refrigerante Variável) aliado à ventilação mecânica com renovação de ar. O projeto foi baseado nas normas da ABNT NBR 16401 e incluiu modelagem em AutoCAD e aná- lise de cargas térmicas com o software HAP (Hourly Analysis Program). A proposta apresentou um equilíbrio entre conforto térmico, eficiência energética e viabilidade econômica.
+
+Na Universidade Federal de Santa Maria (UFSM), destaca-se o sistema de exaustão implan- tado na cozinha do restaurante universitário. A solução incluiu coifas lavadoras e ventiladores de alta performance para remoção de vapores quentes e partículas de gordura. Também foi projetado um sistema de ventilação de reposição com resfriamento evaporativo, voltado para manter o con- forto térmico nas áreas de preparo dos alimentos mesmo em dias de alta temperatura. O projeto seguiu as diretrizes da norma ABNT NBR 14518, voltada para exaustão de cozinhas profissionais.
+
+Outro caso relevante é o da Universidade Federal de Mato Grosso do Sul (UFMS), onde foi estudada a ventilação natural como estratégia de conforto térmico e eficiência energética. Apesar de apresentar bons resultados na movimentação de ar, o estudo concluiu que, devido à alta carga térmica gerada internamente e à temperatura radiante da cobertura, a ventilação natural por si só não seria suficiente, sendo recomendadas soluções híbridas com ventilação mecânica assistida.
+
+No caso da Universidade Federal do Ceará (UFC), campus Russas, o projeto de climatização do restaurante universitário foi pensado para adaptar-se às condições já existentes na edificação, evitando intervenções estruturais profundas. Foram utilizados princípios das normas NBR 16401 (partes 1 e 2) para cálculo de carga térmica e seleção dos equipamentos, com foco na melhoria do conforto térmico nas áreas de refeição e serviços administrativos.
+
+1.3 OBJETIVOS
+
+O objetivo geral desse trabalho é desenvolver um projeto de melhoria para o sistema de exaus- tão do Restaurante Universitário da Universidade de Brasília (UnB), visando solucionar os pro- blemas de ventilação, reduzir o acúmulo de calor e umidade, e garantir condições adequadas de conforto térmico e qualidade do ar interno, conforme as normas técnicas e sanitárias vigentes.
+
+Sendo os objetivos específicos detalhados abaixo:
+
+• Realizar um diagnóstico técnico do ambiente atual, identificando os principais pontos críti-
+
+4
+
+cos relacionados à exaustão e ventilação;
+
+• Estudar os princípios e normas aplicáveis ao projeto de sistemas de exaustão em cozinhas profissionais, como a NBR 14518, NBR 16401-3 e a RDC nº 275/2002 da ANVISA;
+
+• Estimar as cargas térmicas e de umidade geradas no ambiente do RU, especialmente na região da ilha de banho-maria;
+
+• Determinar as vazões de ar necessárias para garantir a renovação e exaustão adequadas;
+
+• Propor um sistema de exaustão eficiente, incluindo o dimensionamento de equipamentos, localização de captadores e rota dos dutos;
+
+• Avaliar a viabilidade técnica da solução proposta, considerando as características arquitetô- nicas do espaço e as condições operacionais do RU;
+
+• Contribuir para a melhoria do conforto ambiental, da saúde ocupacional e da eficiência energética no restaurante universitário.
+
+1.4 METODOLOGIA
+
+O presente trabalho foi desenvolvido com o intuito de propor melhorias no sistema de venti- lação e exaustão do Restaurante Universitário (RU) da Universidade de Brasília, com o objetivo de melhorar o conforto térmico dos usuários. A metodologia empregada envolveu etapas de in- vestigação, coleta de dados, análise técnica e proposição de soluções.
+
+Foi realizado a caracterização do ambiente por meio de visitas técnicas, fotografias e medi- ções da condição do ambiente. Essa etapa permitiu o reconhecimento dos principais espaços, a identificação das zonas críticas de ventilação e a compreensão do funcionamento do RU ao longo dos três períodos de atendimento (café da manhã, almoço e jantar).
+
+Também foi aplicada uma pesquisa de satisfação com os usuários do restaurante, utilizando um questionário digital distribuído por QR Code em pontos estratégicos do refeitório. A pesquisa levantou questões subjetivas de conforto térmico, ventilação e qualidade do ar percebida. Além de questões comportamentais como evitar horários de pico e a frequência de uso.
+
+Foram realizadas visitas durante o período letivo da faculdade para se obter medições do am- biente com equipamentos adequados como câmera térmica, termômetro infravermelho e medidor de CO2, de umidade relativa e de temperatura. Essas medições ocorreram em diferentes locais e horários do dia, com e sem a presença de usuários, permitindo avaliar variações nos parâmetros ambientais e identificar a influência da ocupação no desempenho térmico do ambiente.
+
+Com base nos dados obtidos, foi feita uma análise técnica considerando os princípios de con- forto térmico, ventilação natural, renovação de ar e normativas como a ABNT NBR 16401-3. A partir disso, foram identificados os pontos críticos e elaboradas propostas de melhorias no sistema de ventilação e exaustão, buscando aliar viabilidade técnica e conforto ambiental.
+
+5
+
+1.5 ESTRUTURA DO TRABALHO
+
+Este trabalho está dividido em 5 capítulos, sendo eles:
+
+Capítulo 1: Introdução. Apresentação da importância e da relevância de um projeto de venti- lação e exaustão do Restaurante Universitário da UnB.
+
+Capítulo 2: Ventilação Revisão Geral. Apresenta os fundamentos teóricos e técnicos da ven- tilação e qualidade do ar.
+
+Capítulo 3: Conforto Térmico Revisão Geral. Apresenta os fundamentos teóricos e técnicos do conforto térmico.
+
+Capítulo 4: Estudo de Caso. Descreve as condições atuais do Restaurante Universitário da UnB, com base em visitas técnicas e observações. São levantados os principais problemas relaci- onados à ventilação e à presença de vapor na área da ilha de banho-maria.
+
+Capítulo 5: Resultados Preliminares. Mostra os resultados obtidos através da medições de temperatura, umidade e concentração de CO2.
+
+6
+
+2 VENTILAÇÃO REVISÃO GERAL
+
+Refletindo a relevância do problema apresentado e a proposta de intervenção no sistema de exaustão do Restaurante Universitário da UnB. É essencial compreender e revisar conceitos fun- damentais que embasam o projeto de sistema de ventilação e exaustão em edificações. Esse tópico tem o intuito de apresentar uma revisão teórica e normativa dos principais conceitos que regem a ventilação mecânica, abordando também diretrizes das normas técnicas aplicáveis ao tema, como as da ABNT e da ANVISA. Além disso, serão apresentadas análises de exemplos de projetos emblemáticos na área, com o objetivo de mostrar as boas práticas e soluções já aplicadas em restaurantes e espaços com grande movimentação de pessoas semelhantes ao RU da UnB.
+
+2.1 AR INTERNO
+
+Segundo Schirmer et al. (2011) a diminuição das taxas de troca de ar interno em ambientes fechados é a maior responsável pelo aumento da concentração de poluentes biológicos e não biológicos. Com isso, criou-se o interesse por estudos sobre a Qualidade do Ar Interno, já que 90% das pessoas passam a maior parte do seu tempo dentro de edificações e, consequentemente, expostas a esses poluentes.
+
+A qualidade do ar interno está diretamente relacionada ao desempenho de sistemas de venti- lação adequados, capazes de renovar o ar e remover substâncias nocivas do ambiente. Segundo Jones (1999), admite-se que a ventilação seja um dos principais fatores que interferem na QAI. Sendo uma das ferramentas mais eficazes no controle dessa qualidade, a ventilação é definida como a combinação de processos que resultam não só no fornecimento de ar externo, mas tam- bém na retirada do ar viciado, carregado de poluentes, de dentro do edifício.
+
+Esses processos envolvem a captação de ar externo, seu condicionamento, como filtragem, aquecimento ou resfriamento, a distribuição homogênea pelos diferentes ambientes internos e, por fim, a exaustão. A eficiência desse processo depende do tipo de ventilação adotado natural, mecânica ou mista e de variáveis como a taxa de renovação do ar por hora (ACH), o layout da edificação e o posicionamento estratégico de entradas e saídas de ar.
+
+2.2 AR EXTERNO
+
+O Ar Externo é o ar que está presente na parte exterior das edificações e é utilizado para a renovação do ar interno. Tendo papel fundamental na diluição dos poluentes do ar, do CO2 presente na sala, dos compostos orgânicos voláteis, da umidade e dos odores.
+
+7
+
+Sendo essencial para garantir a Qualidade do Ar Interno e o conforto térmico. A NBR 16401- 3 recomenda valores mínimos de taxa de renovação de ar com base na ocupação e no tipo de atividade desenvolvida no espaço. Essa taxa é geralmente expressa em litros por segundo por pessoa (L/s.pessoa) ou em trocas de ar por hora (ACH – Air Changes per Hour).
+
+É importante se preocupar de onde está sendo captado o ar externo, já que esses devem estar li- vres de contaminantes (longe de descargas de exaustão, fontes de poluição e calor) e, dependendo da aplicação, filtrado antes de ser insuflado no ambiente interno, principalmente em sistemas me- cânicos. Mesmo em sistemas de ventilação natural, a entrada de ar externo deve ser pensada estrategicamente para permitir circulação eficiente e contínua, evitando zonas de ar viciado.
+
+2.3 VENTILAÇÃO
+
+Ventilação é a indução de movimentação do ar em um ambiente, sendo ela natural ou forçada. É um dos mecanismos essenciais para a manutenção da qualidade do ar, removendo poluentes, impurezas e controlando tanto a umidade quanto a temperatura. Sendo fundamental a sua pre- sença em ambientes fechados como residências, escritórios, hospitais e indústrias. Ela consiste na renovação do ar trazendo ar fresco do exterior, o que é fundamental para manter a saúde e o conforto das pessoas presentes no espaço.
+
+Dentre os tipos de ventilação temos a ventilação natural e a artificial ou forçada:
+
+• Ventilação natural: ocorre espontaneamente por meio de aberturas como janelas e portas, aproveitando as correntes de ar externas.
+
+• Ventilação artificial: utiliza equipamentos como ventiladores e exaustores para promover a circulação do ar de maneira controlada.
+
+2.4 VENTILAÇÃO DILUIDORA
+
+A ventilação diluidora tem como objetivo manter a concentração de poluentes abaixo dos limites permitidos, usando a diluição dos poluentes presentes no ar através da inserção de um ar mais puro; normalmente, esse vindo do ar externo. Esse método não diminui a poluição do ar mas sim faz a diluição dos poluentes. Diferentemente da ventilação localizada, que atua sobre a fonte emissora. A VDG atua sobre o ambiente como um todo, sendo essencial para restaurantes e espaços com grande circulação de pessoas.
+
+É possível fazer a Ventilação Diluidora de forma natural e de forma forçada. A Ventilação Diluidora Natural depende de forças ambientais espontâneas para ser possível a renovação do ar como a pressão dos ventos externos e diferença de temperatura (efeito chaminé). Essa é uma solução de baixo custo operacional e exige pouco consumo de energia, e pode ser muito eficiente
+
+8
+
+em locais onde a arquitetura contribuí com a ventilação. A sua eficácia pode ser variável depen- dendo de fatores externos e que não é possível controlar como a direção e velocidade do vento, o que dificulta o controle do conforto térmico e da qualidade do ar interno.
+
+O,
+
+Figura 2.1: Ventilação Diluidora Natural
+
+Na ventilação diluidora forçada é usado ventiladores, exaustores e difusores de ar para promo- ver a movimentação do ar, garantindo uma taxa de renovação independente de fatores externos. Esses sistemas também possibilitam a utilização de filtros, controle de temperatura e umidade e a aplicação de sensores de CO² para monitoramento da qualidade do ar.
+
+A entrada de ar é deficiente Entrada de ar regular Tubo de distribuição vertical Melhor entrada de ar Entrada de ar melhorada Melhor entrada de ar
+
+Figura 2.2: Ventilação Diluidora Forçada
+
+2.5 VENTILAÇÃO LOCAL EXAUSTORA
+
+A Ventilação Local Exaustora é um sistema de ventilção que tem o intuito de captar e retirar os contaminantes diretamente da fonte de emissão, antes que eles sejam dispersos no ambiente. Esse sistema é considerado com um controle mais eficaz que a ventilação diluidora, principal- mente quando temos como objetivo garantir a saúde dos ocupantes e proteger da insalubridade em ambientes com geração localizada de vapores, gases e fumos ou calor.
+
+9
+
+Ele é composto por um captador posicionado o mais próximo possível da fonte emissora, uma rede de dutos para transportar o ar contaminado, um ventilador para gerar fluxo de sucção e um dispositivo de filtragem do ar retirado.
+
+Figura 2.3: Ventilação Local Exaustora
+
+A principal vantagem da VLE está no fato de interromper a dispersão de contaminantes logo na origem, evitando que se espalhem por áreas ocupadas e comprometam a saúde e o conforto dos usuários. Por isso, é uma estratégia recomendada por normas e é amplamente adotada em projetos que exigem controle pontual de poluentes e calor.
+
+No contexto do Restaurante Universitário da UnB, a ausência de uma ventilação local exaus- tora eficiente nas áreas de maior geração de calor e umidade, como a ilha de banho-maria, contri- bui significativamente para a sensação de abafamento, desconforto térmico e acúmulo de odores. A implementação de um sistema de VLE corretamente dimensionado nesses pontos críticos é essencial para melhorar a qualidade do ar interno, garantir condições adequadas de trabalho aos colaboradores e oferecer mais conforto aos usuários durante as refeições.
+
+2.6 VENTILAÇÃO NATURAL X VENTILAÇÃO MECÂNICA
+
+A Ventilação Natural e a Ventilação Artificial são duas maneiras de fazer a movimentação do ar. Ventilação Natural utiliza forças naturais como o vento e o empuxo para facilitar a troca de ar,
+
+10
+
+enquanto a ventilação artificial usa sistemas mecânicos para fazer o mesmo. Cada um deles tem suas vantagens e aplicações; usados no contexto certo, podem beneficiar a saúde, greenhouses e o design de edifícios.
+
+Ventilação Natural:
+
+• Eficiência Energética: Tem o cosumo de energia zero, se tornando atrativo para reduzir o uso de energia no edifício. Ele aproveita as diferenças de vento e temperatura para facilitar o fluxo de ar, minimizando assim a dependência do sistema mecânicos Molina-Aiz et al. (2023) .
+
+• Impacto Ambiental: Ao reduzir o consumo energético, a ventilação natural contribui para a baixa poluição do meio ambiente e melhorando a qualidade do ar. É particularmente efetivo em Projeto de construção bioclimático e edificações passivas. Souza e Rodrigues (2012)
+
+Ventilação Artificial:
+
+• Controle Preciso: Permite o controle de mais preciso de vazão, da direção e da qualidade do ar. Sendo ideal para ambientes onde há grande geração de calor, umidade, odores e contaminantes como cozinhas, laboratórios e banheiros.
+
+• Confiabilidade e Normatização: A ventilação mecânica atende com maior facilidade aos requisitos estabelecidos por normas técnicas, como a NBR 14518 e a NBR 16401-3, espe- cialmente em edificações com alta ocupação ou produção significativa de calor e umidade.
+
+11
+
+3 CONFORTO TÉRMICO REVISÃO GERAL
+
+3.1 CONCEITO DE CONFORTO TÉRMICO
+
+O Conforto Térmico é um aspecto crucial para a qualidade do ambiente interno, influenciando não apenas na satisfação, mas também no bem-estar, na produtividade e na saúde dos ocupantes. Ele engloba avaliações subjetivas das condições térmicas, que podem ser afetadas por fatores físicos, fisiológicos e psicológicos (Lin e Deng (2008)). As pessoas estão sempre dentro de um ambiente térmico externo ou interno, o corpo troca calor com o meio externo e durante atividades cotidianas essas trocas resultam em uma temperatura corporal média de aproximadamente 37°C, sendo essa temperatura a ideal para nossa saúde e bem-estar (Prek (2005)). Pesquisas recentes enfatizam a importância de modelos adaptativos e práticas sustentáveis para alcançar o conforto térmico, especialmente no contexto das mudanças climáticas.
+
+Embora a preocupação com o conforto térmico seja muito importante para aumentar a produ- tividade e bem-estar, é essencial considerar as possíveis consequências disso, como o consumo de energia e o impacto ambiental causado ao atingir o conforto. É necessário equilibrar conforto com sustentabilidade, sendo um desafio significativo a ser encarado para a realização de um bom projeto e gerenciamento de ambientes.
+
+3.2 INFLUÊNCIA DA VENTILAÇÃO NO CONFORTO TÉRMICO
+
+Em regiões de clima quente, como o Distrito Federal, a ventilação natural e artificial tem um papel fundamental na sensação de conforto térmico, principalmente em ambientes com grande ocupação e uso de equipamentos que geram calor, como cozinhas e refeitórios. A movimentação do ar ajuda diretamente no aumento da perda de calor sensível e latente do corpo humano, pro- porcionando conforto térmico mesmo em temperaturas mais altas do que as ideais consideradas para ambientes internos.
+
+Segundo Du (2019), a ventilação adequada, podendo ser natural ou forçada, pode aumentar significativamente o intervalo de temperatura aceitável para os ocupantes. Estudos mostram que ambientes ventilados naturalmente fazem com que os ocupantes consigam se sentir confortáveis em temperaturas de até 30°C desde que o sistema de ventilação esteja em bom funcionamento. Isso acontece devido a corrente de ar sobre a pele aumentar a eficiência da convecção e evaporação do suor.
+
+De acordo com a ASHARAE Standard 55, a temperatura de conforto pode variar conforme a velocidade do ar é percebida. Para ambientes com velocidades de ar entre 0,6m/s e 1,2m/s é possível considerar um aumento de até 2,2°C na temperatura de conforto, evidenciando o papel
+
+12
+
+crucial da ventilação no desempenho térmico de ambientes não climatizados (Du (2019)).
+
+Por tanto, o dimensionamento e posicionamento de janelas, exaustores, ventiladores e aber- turas são essenciais que sejam considerados não apenas para renovação de ar mas também para ajudar na percepção de conforto térmico para os ocupantes. Isso mostra que a ventilação não tem apenas um papel de higienização, mas também é um recurso de conforto e eficiência energética, já que, com a ventilação adequada, precisaremos retirar menos calor do ambiente, pois ele aumenta a sensação de conforto térmico nos ambientes.
+
+3.3 FATORES QUE INFLUENCIAM O CONFORTO TÉRMICO
+
+O conforto térmico é influenciado não apenas pela temperatura mas também por um conjunto de variáveis que interagem entre sim e influenciam na percepção do ambiente. Elas podem ser dividas como variáveis de ambiente e variáveis pessoais.
+
+Segundo Lin e Deng (2008) são seis fatores principais que influenciam na sensação térmica do ser humano, sendo as de ambiente temperatura do ar, temperatura radiante média, umidade relativa do ar e velocidade do ar. E as pessoais são taxa de metabolismo e isolamento térmico das roupas.
+
+• Temperatura do ar: Medida direta de calor presente no ambiente e com grande influencia na troca de calor sensível entre o corpo e o ar.
+
+• Temperatura radiante média: Média das temperaturas das superfícies no ambiente. Su- perfícies quentes que irradiam calor e causam desconforto independente se o ambiente está frio ou quente.
+
+• Umidade relativa do ar: Influência na evaporação do suor. Ambientes muito úmidos po- dem dificultar a evaporação e reduzir a eficiência de transpiração natural do corpo humano.
+
+• Velocidade do Ar: As correntes de ar melhoram a dissipação de calor por convecção e evaporação, aumentando a sensação agradável.
+
+• Taxa metabólica (atividade física): Quanto maior a atividade realizada, maior a produ- ção de calor interno. Pessoas em repouso e pessoas em atividade física exigem condições térmicas distintas.
+
+• Isolamento térmico das roupas: o tipo de vestimenta influencia diretamente a troca de calor com o ambiente. Roupas leves facilitam a dissipação de calor; roupas pesadas atuam como barreira.
+
+A junção desses fatores vão determinar a sensação de conforto ou desconforto. No caso do Restaurante Universitário tem-se a hipótese de que as variáveis críticas que afetam o conforto
+
+13
+
+térmico nos refeitórios são a temperatura do ar, a umidade relativa e a velocidade do ar. Sendo assim, fatores que devem ser priorizados no projeto de ventilação com o intuito de promover uma boa circulação de ar e evitando acúmulo de valor e calor no ambiente.
+
+3.4 CONFORTO TÉRMICO ADAPTATIVO
+
+O conforto térmico adaptativo é uma abordagem dinâmica que enfatiza o papel ativo dos ocupantes na regulação de seu ambiente térmico, contrastando com os modelos tradicionais de equilíbrio térmico. Este conceito integra adaptações comportamentais, psicológicas e fisiológi- cas, permitindo um projeto mais flexível e energeticamente eficiente em edifícios. O modelo adaptativo ganhou força devido ao seu potencial de aumentar a satisfação dos ocupantes e reduzir o consumo de energia.
+
+O conforto térmico é uma abordagem dinâmica que enfatiza o papel dos ocupantes na regula- ção do conforto térmico e na adaptação das condições do ambiente, especialmente em locais com ventilação natural ou com ventilação passiva. Ao contrário dos modelos tradicionais de equilíbrio térmico, que assumem uma faixa de temperatura ideal, baseada no controle artificial desses locais. O conforto térmico adaptativo considera o histórico climático recente, as preferências culturais e o comportamento dos usuários.
+
+Segundo Fernandes (2020), este conceito integra adaptações comportamentais, psicológicas e fisiológicas, permitindo um projeto mais flexível e energeticamente eficiente em edifícios. O modelo adaptativo ganhou força devido ao seu potencial de aumentar a satisfação dos ocupantes e reduzir o consumo de energia.
+
+Esse método foi consolidado na década de 1970 e 1990 com os estudos de Humphreys e Nicol, e posteriormente formalizado como uma norma ASHRAE 55 (2017). Na norma, a temperatura operativa de conforto é expressa como função da temperatura externa média dos últimos dias:
+
+Tconf = 0.31 ⋅ Textmdia + 17.8
+
+Teonf = 0.31: Tostdia + 17.8 (3.1)
+
+Essa fórmula evidencia que quanto mais quente o ambiente externo maior é a temperatura aceitável internamente. A norma define faixas aceitáveis em torno da temperatura neutra: 2,5°C a cima ou abaixo para 90% de aceitação e 3,5°C a cima ou abaixo para 80% de aceitação.
+
+14
+
+(3.1)
+
+32 50F 59F 68F TF ser 95F 30 86.0F o? 82.4F E 26 78.8 F 2 E o 24 75.2F e E] o 5 22 + = - T1.6F =) | 90% de aceitabilidade 5 20 68.0 F 3 2 18 | 80% de aceitabilidade 64.4 F o F 46 60.8 F 14 5 10 15 20 25 30 35 Temperatura externa média predominante (°C)
+
+32 50F 59F 68F TF ser 95F 30 86.0F o? 82.4F E 26 78.8 F 2 E o 24 75.2F e E] o 5 22 + = - T1.6F =) | 90% de aceitabilidade 5 20 68.0 F 3 2 18 | 80% de aceitabilidade 64.4 F o F 46 60.8 F 14 5 10 15 20 25 30 35 Temperatura externa média predominante (°C)
+
+Figura 3.1: Conforto Térmico Adaptativo
+
+A adaptação pode ocorrer de diferentes formas:
+
+• Comportamental: Mudança de vestimenta, abertura de janelas, ajuste de ventiladores ou ritmo de atividade.
+
+• Fisiológico: Aclimatização do organismo após exposição repetida a determinadas condi- ções térmicas.
+
+• Psicológica: Alteração na percepção de conforto térmico em função de uma expectativa.
+
+• Socio-cultural: Normas culturais que influenciam a aceitação das condições ambientais.
+
+No contexto de projeto de edificações, o modelo adaptativo traz uma abordagem mais real permitindo soluções de baixo consumo de energia, como o uso de massa térmica, ventilação natural controlada e estratégia de sombreamento.
+
+Nesse trabalho foi adotado o modelo de conforto térmico adaptativo da ASHARE como base para avaliar o conforto térmico dos ocupantes, principalmente por se tratar de uma ambiente predominantemente com ventilação natural e por não possuir climatização artificial constante. A avaliação foi feita utilizando a temperatura operativa, considerada equivalente à temperatura do ar em ambientes sombreados com baixa velocidade do ar, como citado por Fernandes (2020).
+
+15
+
+4 ESTUDO DE CASO
+
+4.1 CARACTERIZAÇÃO DO AMBIENTE
+
+O Restaurante Universitário (RU) da Universidade de Brasília (Unb) atende diariamente mi- lhares de estudantes, servidores e visitantes, seu funcionamento ocorre durante três períodos sendo eles o café da manhã, almoço e jantar. A presença de muitas pessoas no restaurante, so- mada ao funcionamento contínuo de equipamentos geram calor e umidade tornando o controle da ventilação e do conforto térmico um desafio.
+
+No local está em funcionamento seis restaurantes sendo dois por andar, andar subsolo, térreo e primeiro andar. A cozinha principal fica na parte de cima do edifício em uma torre separada. Entre os restaurantes há presença de uma cozinha secundária que serve para armazenamento de alguns alimentos e organização para os funcionários.
+
+Figura 4.1: Restaurante Universitário da UnB
+
+O ambiente interno apesar de ser grande e aberto nos refeitórios o espaço é menor e mais aglomerado. Os restaurantes apresentam grande circulação de pessoas especialmente durante o almoço o que contribui bastante para o aumento da temperatura e a sensação de abafamento. A aglomeração de pessoas, a proximidade com o banho Maria e as janelas em que possui grande incidência de luz solar intensificam o desconforto térmico.
+
+16
+
+Figura 4.2: Parte Interna do RU
+
+As áreas do restaurante universitário foram divididas em 4 partes, a primeira área em branco que é a entrada do restaurante, a área em azul que é o meio do restaurante, a área em vermelho que é o fundo do restaurante e a parte em amarelo que é a área da ilha de banho-maria.
+
+Figura 4.3: Áreas RU
+
+Além disso, determinados pontos do restaurante recebem incidência direta de radiação solar, especialmente nos períodos da manhã e a tarde toda, elevando ainda mais a temperatura local e aumentando a carga térmica interna. O somatório desses fatores resulta em um ambiente muitas
+
+17
+
+vezes considerado quente, pouco ventilado e com sensação de ar parado, conforme relatado por diversos usuários na pesquisa de campo.
+
+Figura 4.4: Parte Interna refeitório
+
+Figura 4.5: Parte Interna refeitório câmera térmica
+
+Já a parte virada para dentro do RU onde não tem incidência de raios solares permanece muito fria durante a manhã devido a inércia térmica do restaurante, sendo perceptível uma diferença
+
+18
+
+gritante de conforto térmico entre áreas bem próximas.
+
+Figura 4.6: Parte fria Interna refeitório
+
+_ $23.4C fee
+
+Figura 4.7: Parte fria Interna refeitório câmera térmica
+
+Na fachada voltada para o ICC, observou-se, como mostrado pelas imagens térmicas, que o pavimento sub-solo do Restaurante Universitário apresenta incidência solar significativamente maior do que os andares de cima. A diferença de temperatura é evidenciado pela tonalidade de cores mais quentes (vermelho e amarelo) como mostrado na imagem nas partes inferiores do
+
+19
+
+restaurante, isso indica que a temperatura superficial está mais elevada.
+
+Figura 4.8: Parte Externa do RU
+
+As imagens captadas com a câmera FLIR mostram que o sub-solo está diretamente exposto à radiação solar durante grande parte do dia, enquanto os pavimentos superiores, parcialmente som- breados pela própria estrutura do prédio, permanecem em temperaturas notavelmente mais baixas (tonalidades azuladas). Essa diferença de incidência solar contribui para o superaquecimento dos ambientes internos localizados no sub-solo, especialmente nas áreas próximas às janelas.
+
+Figura 4.9: Parte Externa Inferior do RU
+
+20
+
+Figura 4.10: Parte Externa Superior do RU
+
+Sendo assim, podemos concluir pelas imagens mostrando uma temperatura de 37.7 °C na parte inferior e 20.3 °C para parte superior, que os três pavimentos recebem incidência de radiação solar desigualmente, fazendo com que o restaurante do sub-solo seja muito mais quente.
+
+Já na parte voltada para a L2 Sul Figura 4.11 observa-se que não há muita incidência de radiação solar em nenhum dos pavimentos. Isso se deve principalmente à presença de muitas árvores na parte externa e também devido a uma estrutura de metal que faz uma proteção dos restaurantes.
+
+Figura 4.11: Parte Externa lado L2 Sul
+
+Observa-se que a ilha de banho-maria que mantêm a comida aquecida é uma das principais fontes de vapor e calor no ambiente. Como mostra a Figura 4.12, o vapor gerado sobe sem sistema
+
+21
+
+de exaustão local, dispersando-se diretamente no salão de refeições.
+
+Figura 4.12: Banho-maria
+
+Além do aumento da umidade relativa do ar, foi possível observar também a condensação de vapor sobre a cobertura de vidro da ilha, como visto na figura abaixo. Essa condensação indica que o vapor está saturando o ar local, o que contribui significativamente para a sensação de abafamento reportada pelos usuários na pesquisa de satisfação. Além disso, o vapor acumulado tende a aumentar a temperatura radiante local e comprometer a renovação natural do ar, agravando o desconforto físico, especialmente em horários de pico.
+
+DN E
+
+Figura 4.13: Vidro Banho-Maria
+
+Na área de banho-maria a ilha é dividida em duas partes, a primeira ilha é destinada para alimentos frios como frutas e salada. E a segunda ilha é destinada para alimentos quentes e onde
+
+22
+
+está o maior problema de transferência de calor.
+
+Figura 4.14: Ilha de Banho-Maria
+
+2 19.3°C 42.2
+
+Figura 4.15: Banho-Maria câmera térmica
+
+É importante destacar que a posição da ilha, associada ao fato de o RU possuir baixa ventilação cruzada, faz com que o vapor emitido pelo banho-maria não seja eficientemente diluído nem exaurido. Isso evidencia a necessidade de um sistema de ventilação local exaustora (VLE) sobre a ilha, com coifa e exaustor dimensionados para captar o vapor próximo à sua fonte, impedindo sua dispersão pelo ambiente.
+
+Entre os restaurantes do mesmo andar, possui uma área de operação dos funcionários, onde a comida dos restaurantes chega da cozinha e é dividida e preparada para ser colocada no banho-
+
+23
+
+maria dos restaurantes. Essa área também se apresenta sem ventilação adequada e é possível ver o gradiente de temperatura em relação a outras áreas do restaurante.
+
+Figura 4.16: Área de distribuição de comida
+
+Dentro do restaurante também há outras fontes de calor que podem contribuir para que o conforto térmico dos usuários seja afetado. Sendo eles as máquinas de sucos.
+
+BESC] t
+
+Figura 4.17: Máquina de Suco
+
+Dentro de cada restaurante existe uma área em que os pratos são higienizados e colaboradores trabalham lá dentro. Foi identificado que nesse local há um calor intenso devido à água quente utilizada para limpar os pratos, copos e talheres. Nesse local há uma deficiência grave de ventila- ção em que o ventilador presente não dá a vazão necessária para que todo o calor emanado pela água quente seja exaurido.
+
+24
+
+Figura 4.18: Área de lavagem
+
+Dentro dessa área presença de um ventilador de parede com o intuito de melhorar a venti- lação mas mesmo com o acréscimo desse ventilador os funcionários relataram que a área fica extremamente úmida e quente. E são raras as vezes que o ventilador realmente ajuda.
+
+Figura 4.19: Ventilador Área de lavagem
+
+A cozinha do RU é localizada em uma torre separada dos restaurantes e fica no último andar da torre. A cozinha, como já mencionado anteriormente, é bem equipada e possui um sistema de ventilação e exaustão próprio, não necessitando de um projeto para o local.
+
+25
+
+Figura 4.20: Vapor da Cozinha RU
+
+Figura 4.21: Exaustores da cozinha RU
+
+4.2 METODOLOGIA DA PESQUISA DE SATISFAÇÃO
+
+Em função das condições já descritas do ambiente e também de reclamações frequentes dos alunos e colaboradores. Foi essencial compreender a percepção dos usuários sobre o conforto térmico para embasar o projeto. A avaliação por meio de pesquisa de satisfação com os usuários ajudou a identificar os pontos críticos do ambiente, as principais reclamações e validar ou não a eficiência da ventilação presente.
+
+Foram realizadas visitas ao restaurante e entrevistas com as pessoas para assim compreender as principais queixas e solicitar que realizassem a pesquisa através do Google Forms disponibili- zado pelo QRCode. Para se obter uma análise mais detalhada do conforto térmico do restaurante, foram criados 4 formulários.
+
+26
+
+As visitas para a realização da pesquisa foram feitas durante uma semana nos três horários de funcionamento.
+
+Para ampliar o alcance da pesquisa e garantir representatividade, foi criado um flyer com QR Code, o qual foi afixado em murais de grande circulação, como os da Faculdade de Tecnologia (FT), do próprio RU e do ICC Sul. Além disso, o link da pesquisa foi compartilhado em grupos de WhatsApp e outras redes sociais utilizados por estudantes da Universidade de Brasília. Essa estratégia permitiu obter respostas tanto de usuários que estavam presentes no local quanto de pessoas que frequentam o restaurante com menor regularidade, enriquecendo a análise com di- ferentes perspectivas. No total foram obtidos 163 respostas, sendo 131 respostas recolhidas no restaurante e 32 respostas de pessoas que não estavam no restaurante por meio do flayer e grupos do Whatsapp da UnB.
+
+• Formulário 1: Para a região em branco que se localiza perto da entrada do restaurante.
+
+• Formulário 2: Para a região azul que se localiza na região mais central do restaurante.
+
+• Formulário 3: Para a região vermelho que se localiza na região ao fundo do restaurante.
+
+• Formulário 4: Para respostas de pessoas que não estavam no restaurante durante a resposta do questionário.
+
+As perguntas feitas no formulário foram:
+
+27
+
+Tabela 4.1: Perguntas do Formulário
+
+Pergunta Com que gênero você se identifica? (Mulher Cis / Homem Cis / Mulher Trans / Homem Trans / Pessoa não binária / Prefiro não dizer) Com que frequência você vai ao RU? (Todos os dias (5 ou +) / 3 a 4 vezes na semana / 1 a 2 vezes na semana / Raramente) Qual período você costuma ir ao RU? (Manhã / Almoço / Noite ) Como você avalia a tempe- ratura dentro do RU durante sua permanência? (Muito Quente / Pouco Quente / Confortável / Muito Frio ) Você percebe o ambiente como abafado? (Sempre / Frequentemente / Às vezes / Nunca ) Na sua opinião, o ambiente do RU é bem ventilado? (Sim / Não / Pouco) Você já sentiu algum descon- forto físico (suor excessivo, dor de cabeça, cansaço, falta de ar) ao permanecer no RU? Objetivo da Pergunta Essa pergunta é importante para avaliar como diferentes identidades de gênero podem influenciar na per- cepção de conforto térmico. Além disso, busca-se uma abordagem in- clusiva. Avaliar a frequência que as pessoas vão para o RU. Entender quais os períodos que a pessoa frequenta. Coletar a avaliação subjetiva dos ocupantes sobre o ambiente tér- mico, considerando toda a perma- nência no espaço. Avaliar a percepção de qualidade do ar e ventilação no ambiente, especi- almente em relação à renovação de ar e sensação de abafamento. Investigar a percepção dos usuários sobre a ventilação do ambiente. Identificar sintomas físicos relacio- nados ao estresse térmico ou baixa qualidade do ar. Relevância para o Estudo Permite análise comparativa com variáveis fisiológicas e culturais que impactam a percepção de conforto. Usuários que frequentam mais tem uma percepção melhor do ambiente e estiveram em situações mais di- versas dentro do restaurante, o que pode afetar sua percepção adapta- tiva de conforto térmico. Importante pois a pessoa vai res- ponder o questionário referente aos horários que ela frequenta, dando ideia da situação no horário. Entender como a pessoa avalia a temperatura na posição que ela está dentro do restaurante. Pode indicar deficiências na venti- lação natural ou mecânica, contri- buindo para o desconforto térmico mesmo quando a temperatura está dentro da faixa de conforto. Complementa a avaliação do con- forto térmico ao indicar possíveis problemas na renovação do ar ou na circulação interna, que influenciam diretamente na eficácia de estraté- gias adaptativas. A presença de desconfortos físicos reforça a urgência de intervenções térmicas e de ventilação no ambi- ente.
+
+(Sim / Não)
+
+Você acredita que a melhoria
+
+Verificar a percepção dos usuários
+
+Reforça a importância da ventilação
+
+da ventilação e exaustão do
+
+sobre o impacto que melhorias no
+
+como estratégia de conforto térmico
+
+RU pode melhorar sua expe-
+
+sistema de ventilação e exaustão te-
+
+e pode orientar intervenções técni-
+
+riência no local?
+
+riam na qualidade do ambiente.
+
+cas futuras no espaço avaliado.
+
+(Sim / Não)
+
+28
+
+Tabela 4.2: Perguntas do Formulário
+
+Pergunta Objetivo da Pergunta Relevância para o Estudo Você costuma evitar o RU em Investigar se o desconforto térmico Indica consequências práticas do horários de pico devido ao afeta o comportamento e a frequên- ambiente térmico inadequado, desconforto térmico? cia dos usuários no restaurante uni- como evasão em horários críticos, (Sim / Não) versitário. o que pode impactar diretamente o uso do espaço e sua função social. Você nota diferenças de tem- Avaliar a uniformidade do conforto Pode revelar pontos críticos de des- peratura ou ventilação entre térmico e da ventilação em diferen- conforto local que exigem interven- os diferentes ambientes do tes setores do restaurante universi- ções específicas no projeto de ven- RU (entrada, fila, área de me- tário. tilação e exaustão. sas)? (Sim / Não / Às vezes) Você sente a presença de Identificar a percepção olfativa dos Complementa a análise de conforto odores agradáveis ou desa- usuários, que pode estar associada à ambiental ao considerar o impacto gradáveis? eficiência da exaustão e à renovação dos odores na experiência dos usuá- (Sim / Não / Às vezes) do ar. rios, especialmente em ambientes de alimentação.
+
+Além das perguntas, ao final da pesquisa, foi inserido um campo para comentários adicionais. Teve como objetivo abrir espaço para questões subjetivas ou situações de desconforto que não foram contempladas nas perguntas fechadas, ampliando a abrangência da coleta de dados.
+
+Essa estratégia pode ser interessante para estudos sobre conforto térmico do ambiente, pois possibilita a identificação de fatores imprevistos ou localizados, como ruídos, odores específicos, sensações térmicas pontuais, ou mesmo observações comportamentais dos demais usuários do ambiente.
+
+4.3 RESULTADOS DA PESQUISA DE SATISFAÇÃO
+
+Com o objetivo de entender a percepção do conforto térmico dos usuários do RU, foi reali- zado um questionário abordando aspectos subjetivos de conforto térmico, ventilação e percepção da qualidade do ar. A pesquisa contou com perguntas relacionadas à sensação de abafamento, des- conforto físico, percepção de odores e avaliação da ventilação, além de aspectos comportamentais como a frequência de uso do RU e a evasão em horários de pico.
+
+Os gráficos mostram uma análise estatística das respostas dos usuários, permitindo fazer o cruzamento de dados e obter informações relevantes para o projeto. Foram feitas relações entre a frequência de uso do RU e a percepção da temperatura ambiente, evidenciando pontos críticos como o sentimento recorrente de abafamento, o desconforto físico relatado por boa parte dos usuários e a sensação de que o ambiente não é suficientemente ventilado.
+
+29
+
+20.0 17.5 e o “ o a o Número de pessoas a a 5.0 25 0.0 +
+
+Figura 4.22: Frequência das Idades
+
+O gráfico de idade revela que a maioria dos usuários do Restaurante Universitário (RU) tem idade entre 18 e 27 anos. Isso é uma observação importante já que nessa idade as pessoas têm uma taxa de metabolismo basais mais altas, o que contribui para uma maior sensibilidade ao calor e consequentemente, influencia no conforto térmico. Segundo a norma ASHRAE Standard 55 (2020), o metabolismo é um dos principais fatores que afetam o conforto térmico, pois está diretamente relacionado à quantidade de calor gerado pelo corpo humano.
+
+A ISO 7730 (2005) também destaca que pessoas mais jovens, principalmente em estado de atividade leve a moderada, podem sentir o ambiente como mais quentes do que indivíduos mais velhos, devido à sua produção de calor corporal ser mais elevada.
+
+60 8 8 Numero de Pessoas 142 Vezes Na Semana 3 A4 Vezes Na Semana Raramente Todos Os Dias (5 Ou +) Frequência
+
+Figura 4.23: Frequência de Uso do RU
+
+Foi-se levantado também a frequência que os usuários vão ao RU. Esse dado é importante
+
+30
+
+já que mostra a relevância do restaurante e também necessário para cruzar os dados e dar mais relevância aos dados das pessoas que frequentam mais o local. O gráfico da Figura 4.23 indica que a maioria das pessoas que vão no RU frequentam o local todos os dias ou de 3 a 4 vezes na semana.
+
+804 «04 % de Respostas 204 Desconforto Fisico = Sim mem Não Homem Mulher Gênero
+
+Figura 4.24: Gênero x Desconforto Físico
+
+Nesse gráfico da Figura 4.24 começamos a cruzar alguns dados de Gênero com o Desconforto Físico. Sendo o desconforto físico aparição de alguns sintomas como tontura, falta de ar e suor excessivo. São situações que evidenciam claramente um deficiência no sistema de ventilação e na qualidade do ar. O Gráfico mostrou uma similaridade quanto ao desconforto físico entre gêneros.
+
+60 Número de Pessoas 204 10 Frequentemente Nunca Sempre Resposta
+
+Figura 4.25: Frequência de Ambiente Abafado
+
+31
+
+A sensação de abafamento foi uma das principais motivações desse trabalho. O gráfico acima trás mais um indicio de que realmente há um problema de umidade no local. Causando a sensação de abafamento, tanto pela presença da ilha de banho-maria quanto pela grande quantidade de pessoas no local.
+
+Sensação de Abafamento 100 mm Nunca mem Às Vezes mem Frequentemente so mm Sempre 60 40 20 o Frequência % de Respostas
+
+Figura 4.26: Frequência x Abafamento
+
+A partir do cruzamento entre os dados de frequência e a sensação de abafamento (Figura 4.26), observa-se um comportamento interessante: embora os usuários que frequentam o RU diariamente relatem níveis elevados de desconforto térmico, os que vão raramente apresentam uma proporção maior de respostas indicando sensação de abafamento. Isso pode indicar que os usuários mais frequentes estão, de alguma forma, mais acostumados com a umidade e ao calor do ambiente, enquanto aqueles que utilizam o espaço esporadicamente são mais sensíveis à sensação de abafamento, possivelmente por não estarem habituados à condição constante do local.
+
+32
+
+Desconforto Físico 100 mes sim mm Não 80 60 % de Respostas 20 o 1a 2 vezes na semaha 4 vezes na semana Raramente Todos os dias (5 ou +) Frequência no RU
+
+Figura 4.27: Horário x Desconforto físico
+
+O gráfico da Figura 4.27 mostra a relação entre a frequência de uso do RU e a percepção de desconforto físico. Nota-se que os usuários que frequentam o restaurante universitário de 3 a 4 vezes por semana (70,6%) e todos os dias (60,6%) relataram, com maior frequência, a ocorrência de desconforto físico. Essa tendência reforça os indícios de que o ambiente apresenta deficiências de ventilação e controle térmico.
+
+804 «04 % de Respostas 204 Avaliação mem Confortável mem Quente mm Muito Quente Homem Mulher Gênero
+
+Figura 4.28: Gênero X Avaliação da Temperatura
+
+Esses dados sugerem que mulheres tendem a sentir mais desconforto térmico do que homens no ambiente do RU. Embora a diferença não seja extrema, a proporção de mulheres que classifi- cam o ambiente como "muito quente"é cerca de 11% maior do que entre os homens, e a taxa de
+
+33
+
+conforto relatada também é inferior.
+
+100 so 60 % de Respostas 40 sensação de Abafameno Nunca 20 — mes Às Vezes mem Frequentemente mem Sempre Mulher Gênero
+
+Figura 4.29: Gênero x Sensação de Abafamento
+
+Assim como o gráfico anterior a figura 4.29 revela uma diferença significativa na percepção de abafamento entre gêneros. Enquanto apenas 6,9% dos homens relataram sentir abafamento “sem- pre”, entre as mulheres esse percentual sobe para 25,8%. Além disso, a proporção de respostas “frequentemente” também é maior entre as mulheres (34%) do que entre os homens (42,7%).
+
+Esses dados reforçam a tendência de que as mulheres percebem o ambiente do Restaurante Universitário como mais abafado e desconfortável do que os homens. Isso pode ser atribuído a fatores fisiológicos (como menor taxa metabólica média), maior sensibilidade térmica, diferenças de vestuário, ou mesmo aspectos comportamentais e culturais, como apontado em estudos de conforto térmico e nas normas ISO 7730 (2005) e ASHRAE Standard 55 (2020).
+
+A Figura 4.30 abaixo mostra que a percepção de odores no RU é recorrente entre os usuários, especialmente entre aqueles que frequentam o ambiente com menos frequência. Isso pode indicar uma certa adaptação por parte dos usuários mais assíduos, que acabam se acostumando com os cheiros do local. Ainda assim, mesmo entre quem frequenta todos os dias, a presença de odores continua sendo percebida, o que reforça a ideia de que há falhas no sistema de ventilação e exaustão. Esses dados evidenciam a necessidade de melhorias na renovação do ar, principalmente nas áreas próximas à cozinha.
+
+34
+
+Percepção de Odores 100 mm Não mes Às Vezes mm Sim 80 60 40 20 0 ce? goo ov*) % de Respostas an? Ne a oe 5 as! que caos os que we 4h Ela Horário
+
+Figura 4.30: Gráfico do Odores x Frequência
+
+O gráfico abaixo mostra mais um ponto de desfuncionalidade na ventilação do ambiente, sendo agravado na parte da noite, onde a presença de odores é bem significativa. Sendo o horário da manhã o menos agravante já que teve o período da madruga e começo da manhã inteiro para diluir os odores no ar.
+
+mm Não mm Sim mes Às Vezes as wr’ wr oN a oN E ss a as 100 80 60 40 20 o Ra Percepção de Odores % de Respostas Horário
+
+Figura 4.31: Gráfico do Odores x Horário de Uso
+
+35
+
+Avaliação da Temperatura mem Confortável mes Quente mm Muito Quente sé ve wr Horário % de Respostas 100 80 60 40 20 £ o a wo 3 wv o
+
+Figura 4.32: Horário x Avaliação Temperatura
+
+A Figura 4.32 mostra uma predominância de respostas indicando sensação de ambiente "Quente"ou "Muito Quente"nos períodos que incluem o almoço, o que já era esperado devido à temperatura externa mais elevada nesse horário e ao maior fluxo de pessoas dentro do refeitório. No entanto, um dado interessante é que a noite também apresenta uma parcela relevante de desconforto tér- mico, mesmo sendo durante o inverno. Isso pode indicar que o calor acumulado durante o dia não está sendo dissipado adequadamente, revelando falhas no sistema de ventilação e exaustão, o que reforça a ideia de que o desconforto térmico não está limitado a picos de temperatura externa, mas sim à ineficiência da ventilação do ambiente.
+
+Desconforto Físico 100 E sim mm Não 80 60 40 20 aw? e Rol w® wr % de Respostas o - ea as Eu nº
+
+Figura 4.33: Horário x Desconforto Físico
+
+36
+
+Como o gráfico 4.33, a figura abaixo 4.34, apresenta a relação entre o horário de uso do Restaurante Universitário e a tendência dos usuários em evitar os horários de pico. Os dados indicam que a maior parte dos usuários do período do almoço (76,3%) e do almoço/noite (85%) afirma tentar evitar os horários de maior movimento.
+
+Esses dados sugerem que, no período da noite, o RU pode ter uma percepção menor de su- perlotação, ainda que, conforme indicado nas figuras anteriores, o conforto térmico à noite seja mais comprometido. Ou seja, a sensação de calor não necessariamente está associada à presença de aglomeração, mas sim à ineficiência do sistema de ventilação nesse horário.
+
+A tentativa de evitar horários de pico nos períodos diurnos reforça a percepção de desconforto associada ao alto número de pessoas, e pode indicar que os próprios usuários adotam estratégias adaptativas comportamentais — como recomendado por estudos de conforto adaptativo (NICOL & HUMPHREYS, 2002; ASHRAE 55).
+
+Evita Horários de Pico 100 - mm sim mem Não 80 60 40 20 [o R e a % de Respostas Horário
+
+Figura 4.34: Horário x Horário de Pico
+
+4.4 COMENTÁRIOS ABERTOS DOS USUÁRIOS
+
+Além das perguntas objetivas, o questionário aplicado contou com um campo aberto para observações gerais. Os comentários recebidos reforçam os resultados quantitativos da pesquisa e trazem percepções diretas dos usuários, contribuindo para a identificação de aspectos críticos não capturados apenas por dados numéricos.
+
+Dentre os mais de 30 comentários coletados, destaca-se a recorrência de reclamações sobre o abafamento no horário do almoço, principalmente nos andares inferiores do restaurante. Muitos
+
+37
+
+usuários mencionaram que a ventilação é insuficiente, que os ventiladores disponíveis têm alcance limitado, e que a disposição dos espaços e das janelas não favorece a circulação de ar. Também foram levantadas críticas sobre o calor na área da cozinha, sugerindo impacto direto nas condições de trabalho dos funcionários.
+
+Outro ponto importante mencionado foi a associação entre o desconforto térmico e os ruídos excessivos nos horários de pico, com alguns usuários relatando que o ambiente se torna descon- fortável não apenas pelo calor, mas também pelo barulho elevado e pela falta de organização nas filas.
+
+1. "É frequentemente desagradável estar no horário de almoço no RU: sol quente, pessoas suadas e com cheiro desagradável. Essa situação geralmente acontece mais nas filas, as quais considero mais abafadas e exaustivas. Nas mesas, a aglomeração de pessoas causa um abafamento também, mas como as janelas, pelo menos do 2° e 3° andar são abertas, proporcionam uma ventilação um pouco melhor."
+
+2. "Respondi referente aos restaurantes dos andares do meio e de cima. Os restaurantes 1 e 2 são mais desconfortáveis (conforto térmico, presença de moscas e mosquitos, gatos, ruídos, etc.) e, por isso, eu o evito. Para os restaurantes 3, 4, 5 e 6 não tenho nada a reclamar."
+
+3. “Só colocam ventiladores simples que ventilam 1 metro. Todo o restaurante está quente. Ventilação insuficiente.”
+
+4. “O subsolo é mais abafado. Mas sinto que o pior é na cozinha.”
+
+5. “Acho que deveria ocorrer um aumento na ventilação do R.U., que na hora do almoço é muito quente.”
+
+6. “Na minha opinião o maior desconforto no RU é sonoro. É muito barulhento.”
+
+7. “Melhor ventilação, mas sem ventiladores espalhados por todo o ru já que eles espalham a comida ou mesmo os guardanapos. O ideal seria um ventilador industrial, como os usados em academias, acredito que diminuiria o problema.”
+
+8. “O RU é um ambiente muito agradável, mas em tempos quentes fica muito quente o ambi- ente em todo momento.”
+
+9. “As vezes tem odor de fezes de gato e alguns pontos são quentes. Os ventiladores são um alívio.”
+
+10. "Imagino que para os funcionários seja muito mais quente porque ao se aproximar da cozi- nha sentimos o calor, então melhor ventilação para os funcionários"
+
+38
+
+4.5 INSTRUMENTAÇÃO
+
+Para complementar a análise e avaliação dos usuários e obter dados objetivos sobre as con- dições ambientais internas do Restaurante Universitário da Universidade de Brasília, foram re- alizadas medições no local utilizando instrumentos de medição. Essa etapa é fundamental para validar as hipóteses de desconforto térmico e deficiência de ventilação apontadas na pesquisa de satisfação.
+
+Os Equipamentos Utilizados foram:
+
+• Câmera térmica (FLIR): é um equipamento baseado na tecnologia de termografia infra- vermelha, utilizada para capturar a radiação térmica emitida por superfícies e convertê-la em imagens visuais codificadas por cores. Seu princípio de funcionamento se baseia na detecção da radiação eletromagnética na faixa do infravermelho (tipicamente entre 7,5 e 14 µm), que é emitida por todos os corpos com temperatura acima do zero absoluto. Para ga- rantir a precisão das medições, as câmeras térmicas devem passar por calibração, processo que ajusta o equipamento para compensar influências ambientais e assegurar que os valores de temperatura registrados estejam dentro dos limites aceitáveis de erro. A calibração é feita automaticamente ao ligar o equipamento e apontar a câmera para lugares onde há troca de calor. A calibração da FLIR é feita utilizando superfícies de referência com temperatura conhecida (corpos negros calibrados), permitindo ao sistema comparar os valores medidos com os reais.
+
+• Termômetro infravermelho: é um instrumento de medição de temperatura sem contato, baseado na detecção da radiação térmica emitida por um corpo. Assim como a câmera tér- mica, ele opera na faixa do infravermelho do espectro eletromagnético. No presente estudo, o termômetro infravermelho foi empregado para realizar medições pontuais de tempera- tura em superfícies críticas do Restaurante Universitário, como paredes, bancadas, pisos e equipamentos da ilha de banho-maria, bem como para aferições de temperatura do ar em diferentes zonas do ambiente. As medições ajudaram a identificar gradientes térmicos rele- vantes, especialmente entre áreas ventiladas e mal ventiladas, contribuindo para a avaliação das condições de conforto térmico e da eficiência da ventilação natural e mecânica.
+
+• Medidor de CO2 e umidade relativa: O medidor de dióxido de carbono (CO2) e umi- dade relativa da marca JLDG é um instrumento utilizado para avaliação da qualidade do ar em ambientes internos, especialmente útil em estudos de conforto térmico, ventilação e salubridade ambiental. No trabalho, o equipamento foi utilizado para monitorar as condi- ções atmosféricas no interior do Restaurante Universitário (RU), principalmente durante os horários de maior ocupação.
+
+A câmera térmica foi utilizada para mostrar os gradientes de temperatura dos restaurantes e ter uma ideia de quanto de calor está sendo emanado por certos equipamentos e elementos dentro do restaurante. Foi utilizada em horários em que o refeitório estava sendo preparada para receber
+
+39
+
+os alunos, quando estava cheio, em horários de picos de temperatura externa e também após a refeição.
+
+O termômetro infravermelho foi utilizado para medir temperaturas pontuais nas regiões de- limitadas, a temperatura foi retirada das mesas dos restaurantes nas áreas descritas. Já que as mesas são elementos que tem uma proximidade com as pessoas e assim podemos tirar conclusões de temperatura nessa área.
+
+O medidor de dióxido de carbono (CO2) e umidade relativa do ar foi posicionado em pontos estratégicos do ambiente, permanecendo durante os três turnos de funcionamento do restaurante (café da manhã, almoço e jantar). O equipamento utilizado realiza leituras em ciclos de 120 segundos, com capacidade de calibração automática para garantir a precisão das medições. As informações obtidas permitiram avaliar a qualidade do ar interno, identificando variações associ- adas à ocupação do espaço e à eficiência da ventilação.
+
+JD-3002
+
+Figura 4.35: Horário x Desconforto Físico
+
+40
+
+5 RESULTADOS PRELIMINARES
+
+Como já evidenciado em capítulos anteriores, o Restaurante Universitário é uma unidade im- portante para o desenvolvimento do País, já que grande parte dos alunos e usuários do restaurante enfrenta dificuldades socioeconômicas. Levado em conta isso, foram reunidos dados da quanti- dade de pessoas que frequentam o RU no mês de maio.
+
+Tabela 5.1: Quantidade de Pessoas
+
+Restaurante Darcy Ribeiro Café da Manhã Almoço Jantar Total Dia 1025 3560 2246 6831 Mês 22542 78315 49423 150280
+
+Considerando vinte e dois dias úteis no mês temos que diariamente o restaurante é usado prin- cipalmente nos horários de almoço e jantar que são os horários onde vemos que tem as maiores críticas ao sistema de ventilação e ao conforto térmico do ambiente.
+
+5.1 MEDIÇÕES DE CO2
+
+A tabela abaixo mostra os resultados das medições de CO2, temperatura e umidade relativa do ar em diferentes pontos do Restaurante. As medições foram realizadas a fim de observar certos padrões de variação no ambiente.
+
+Tabela 5.2: Medições de CO2
+
+Local/Horário Ocupação CO2 [ppm] Temp [°C] Umidade [%] Café da Manhã Sem pessoas 387 22,6 70,2 Café da Manhã Com pessoas 461 23 74,1 Café da Manhã Após refeição 440 22,6 73,0 Almoço Ilha Sem pessoas 406 25,9 88,1 Almoço Ilha Com pessoas 514 28 86,7 Almoço Fundo Com pessoas 520 27,6 80,4 Almoço Após refeição 580 25,3 78 Jantar Ilha Com pessoas 743 28,8 87,4 Jantar fundo Com pessoas 817 27 78,9 Jantar Após refeição 517 25,5 72,9
+
+As medições realizadas revelam valores elevados de CO2, como observado no período do jantar, com 817 ppm no fundo do restaurante e 743 ppm na área da ilha de banho-maria. Es- ses índices ultrapassam os limites recomendados pela ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers), que recomendam níveis inferiores a 700 ppm, caracterizando ventilação insuficiente e acúmulo de ar viciado. Além disso, a temperatura interna
+
+41
+
+ultrapassou os 28°C em horários de maior fluxo, mesmo em um dia típico de inverno seco em Brasília cuja temperatura externa ao meio-dia era de aproximadamente 24°C e já começava a cair significativamente após as 18h.
+
+Outro ponto crítico observado foi a alta umidade relativa do ar nos ambientes internos, que chegou a 88,1% durante o almoço, especialmente na região da ilha de distribuição de alimentos. Esse valor contrasta fortemente com a umidade externa registrada no mesmo horário, em torno de 45%. Essa diferença indica um acúmulo significativo de vapor gerado pelo aquecimento dos alimentos, sem uma ventilação eficaz.
+
+A presença de pessoas no ambiente agravou ainda mais as condições internas, principalmente nos horários de maior ocupação. A comparação entre os dados medidos com e sem pessoas mostra claramente que o sistema atual não consegue responder de forma eficaz às variações de pessoas no ambiente. No café da manhã, por exemplo, a concentração de CO2 passou de 387 ppm para 461 ppm com o aumento da ocupação. Nesse mesmo intervalo, a temperatura subiu levemente de 22,6 °C para 23 °C, enquanto a umidade relativa aumentou de 70,2% para 74,1%, indicando acúmulo de vapor e redução na renovação de ar.
+
+Diante desses dados, torna-se clara a importância da implementação de um sistema de exaus- tão mais eficiente, com ventilação mecânica dimensionada adequadamente para as diferentes zo- nas do RU. A proposta de modernização visa não apenas atender às normas técnicas, mas também garantir a saúde e o bem-estar de seus usuários, melhorar a eficiência energética do prédio e pro- porcionar uma experiência mais confortável e segura para toda a comunidade acadêmica.
+
+5.2 DIFERENÇA DE TEMPERATURA
+
+Foram realizadas medições em todos os seis refeitórios da Universidade de Brasília, o refei- tório que apresentou as piores condições de conforto térmico foi o Restaurante 2, que se localiza no sub-solo virado para o lado do ICC.
+
+Tabela 5.3: Temperatura Restaurante 2
+
+Local Café da Manhã Temp. (°C) Almoço Temp. (°C) Jantar Temp. (°C) Entrada 13,0 21,2 25,2 Janela 33,7 41,0 27,7 Meio 16,0 23,1 27,5 Fundo 14,1 22,1 26,7 Exterior 15,5 26,0 18,0
+
+A tabela acima apresenta as temperaturas medidas em diferentes pontos internos dos res- taurantes. Foram realizadas medições nos três horários das refeições: café da manhã, almoço e jantar. Os resultados indicam uma forte presença de inércia térmica nos refeitórios e desequilíbrio térmico entre as áreas internas.
+
+42
+
+Durante o café da manhã as áreas mais internas dos restaurantes se apresentam mais frias, resultado da troca de calor durante a madrugada e a manhã inteira. Já as áreas do meio e perto da janela apresentam temperaturas mais elevadas, devido principalmente a radiação solar incidente e a presença de pessoas dentro do restaurante.
+
+Isso é evidenciado pelas temperaturas externas na região. Em que durante a madrugada teve uma temperatura média de 12°C fazendo com que o interior do restaurante ficasse bem frio. E durante a tarde teve uma média de temperatura de 26°C fazendo com que a temperatura interna do Restaurante aumentasse devido a troca de calor durante esse período.
+
+Fazendo com que no período da noite mesmo com temperaturas de 18°C na parte externa, o restaurante ficasse com temperaturas elevadas de em média 27,5 °C . Revelando que o calor acumulado durante o dia continua presente no ambiente por várias horas. Isso confirma que o RU retém calor de forma significativa, dificultando o resfriamento natural no período noturno.
+
+5.3 CONFORTO ADAPTATIVO
+
+A figura abaixo mostra a distribuição das condições térmicas do ambiente interno avaliados de acordo com o conforto térmico adaptativo da ASHARE Standard 55 (2017). No gráfico, os pontos em vermelho indicam a combinação da temperatura operativa medida no ambiente e a temperatura média externa vigente no período (prevailing mean outdoor temperature). A faixa azul escuro representa 90% de aceitabilidade e a faixa azul escuro representa 80% de aceitabilidade segundo a norma.
+
+Para a realização do gráfico foi considerado a temperatura do ar como a temperatura de ope- ração. De acordo com a ASHRAE Standard 55 (2017), em ambientes onde não há variação expressiva entre a temperatura do ar e a temperatura radiante média, e quando a movimentação do ar é limitada e próxima de 0,2 m/s a temperatura operativa pode ser estimada pela temperatura do ar. Essa abordagem também foi adotada por Fernandes (2020) no estudo sobre diagramas an- tropoclimáticos para conforto adaptativo, onde ambientes internos sombreados e passivos foram avaliados utilizando a temperatura do ar como substituto da operativa.
+
+Já a temperatura média externa foi calculada através da média de temperaturas do ambiente externo dos últimos dias.
+
+43
+
+Operative Temperature [ºC] 16 © 14 10 12 a ee 18 20 22 24 2 28 30 32 Prevailing Mean Outdoor Temperature [°C]
+
+Figura 5.1: Conforto Adaptativo médio
+
+Pelo gráfico identificamos que apenas dois pontos avaliados estão dentro da faixa de conforto térmico para 90% de aceitabilidade, enquanto apenas um está dentro do 80% de aceitabilidade e todos os outros estão foram tanto dos 80% quanto dos 90%, o que indica a ocorrência de desconforto térmico adaptativo em grande parte dos registros.
+
+Os pontos acima da faixa de conforto sugerem que, em determinados momentos, o ambiente interno estava superaquecido em relação ao que deveria ser aceitável para os usuários adaptados ao ambiente externo. Enquanto os pontos abaixo sugerem que o ambiente estava com condições de frio abaixo do aceitável, o que pode indicar uma grande relação com a inércia térmica do local.
+
+O resultado mostrado confirma a necessidade de intervenções no sistema de condicionamento do ambiente, soluções possíveis são: melhoria no sombreamento e da ventilação cruzada.
+
+44
+
+REFERÊNCIAS BIBLIOGRÁFICAS
+
+1 DATTA, A.; SURESH, R.; GUPTA, A.; SINGH, D.; KULSHRESTHA, P. Indoor air quality of non-residential urban buildings in delhi, india. International Journal of Sustainable Built Environment, v. 6, n. 2, p. 412–420, 2017. ISSN 2212-6090. Disponível em: <https://www.sciencedirect.com/science/ article/pii/S2212609016301960>.
+
+2 SPIRU, P.; PARASCHIV, L. A review on interactions between energy performance of the buildings, outdoor air pollution and the indoor air quality. Energy Procedia, v. 128, p. 179–186, 09 2017.
+
+3 ALMEIDA, S. M.; SOUSA, J. Modelling the contribution of factors influencing the risk of sars-cov-2 infection in indoor environments. Acta Médica Portuguesa, v. 34, n. 12, p. 815–825, Dec. 2021. Disponível em: <https://www.actamedicaportuguesa.com/revista/index.php/amp/article/view/15982>.
+
+4 GOUVEIA, N.; JUNIOR, F. d. J. M.; ANSUJ, A. P.; OLIVEIRA, J. R. d. Restaurant satisfaction level assessment by item response theory. Ciência e Natura, v. 42, p. e51, Dec. 2020. Disponível em: <https://periodicos.ufsm.br/cienciaenatura/article/view/39781>.
+
+5 SCHIRMER, W. N.; PIAN, L. B.; SZYMANSKI, M. S. E.; GAUER, M. A. A poluição do ar em ambientes internos e a síndrome dos edifícios doentes. Ciência Saúde Coletiva, ABRASCO - Associação Brasileira de Saúde Coletiva, v. 16, n. 8, p. 3583–3590, Aug 2011. ISSN 1413-8123. Disponível em: <https://doi.org/10.1590/S1413-81232011000900026>.
+
+6 JONES, A. Indoor air quality and health. Atmospheric Environment, v. 33, n. 28, p. 4535– 4564, 1999. ISSN 1352-2310. Disponível em: <https://www.sciencedirect.com/science/article/pii/ S1352231099002721>.
+
+7 MOLINA-AIZ, F.; VALERA, D.; LóPEZ, A.; FATNASSI, H. Ventilation models in greenhouses. In: . [S.l.: s.n.], 2023. p. 301–377. ISBN 9781003402596.
+
+8 SOUZA, H. A. d.; RODRIGUES, L. S. Ventilação natural como estratégia para o conforto térmico em edificações. Rem: Revista Escola de Minas, Escola de Minas, v. 65, n. 2, p. 189–194, Apr 2012. ISSN 0370-4467. Disponível em: <https://doi.org/10.1590/S0370-44672012000200007>.
+
+9 LIN, Z.; DENG, S. A study on the thermal comfort in sleeping environments in the subtropics—developing a thermal comfort model for sleeping environments. Building and Environment, v. 43, n. 1, p. 70–81, 2008. ISSN 0360-1323. Disponível em: <https://www.sciencedirect.com/science/article/pii/S0360132306004458>.
+
+10 PREK, M. Thermodynamic analysis of human heat and mass transfer and their impact on thermal comfort. International Journal of Heat and Mass Transfer, v. 48, n. 3, p. 731–739, 2005. ISSN 0017-9310. Disponível em: <https://www.sciencedirect.com/science/article/pii/S0017931004004077>.
+
+11 DU, X. A review of thermal comfort. A+BE | Architecture and the Built Environment, v. 9, n. 10, p. 49–68, Nov. 2019. Disponível em: <https://journals.open.tudelft.nl/abe/article/view/4103>.
+
+12 FERNANDES, L. C. Diagramas de apoio ao projeto baseados na ideia do conforto térmico adaptativo 2020. PARC: Pesquisa em Arquitetura e Construção, v. 11, p. e020030, 2020. Disponível em: <https://periodicos.sbu.unicamp.br/ojs/index.php/parc/article/view/8657295>.
+
+13 ASHRAE Standard 55. ANSI/ASHRAE Standard 55: Thermal Environmental Conditions for Human Occupancy. ASHRAE Standard, v. 55, 2020. Atlanta: ASHRAE.
+
+45
+
+14 ISO 7730. ISO 7730: Ergonomics of the thermal environment — Analytical determination and interpretation of thermal comfort using calculation of the PMV and PPD indices and local thermal comfort criteria. ISO, Geneva, 2005. ISO 7730:2005.
+
+46
+
+47
+
+ANEXOS
+
+I. ANEXO I - Flayer para Questionário da Avaliação do Conforto térmico
+
+O Flayer abaixo foi colocado em lugares estratégicos da Universidade para que fosse respon- dido pelo maior número de pessoas.
+
+PESQUIGALHA PARA GRADUAÇÃO i AVALIAÇÃO DO CONFORTO EE TÉRMICO E VENTILAÇÃO NO RESTAURANTE UNIVERSITÁRIO
+
+Figura I.1: Flayer para respostas
+
+48
+
+II. ANEXO III - Código desenvolvido para o projeto
+
+# %%
+
+import pandas as pd
+
+# Carregar os dados do formulário file_path = r'E:\UnB\2025.1\PG 1\Gráficos Pesquisa\Avaliação do Conforto Térmico e ' \ 'Ventilação no Restaurante Universitário 3 (respostas) (7).xlsx' df = pd.read_excel(file_path) # Mostrar as primeiras linhas do DataFrame df.head() # %% # Corrigir nomes com espaços extras df.columns = df.columns.str.strip() # Fazer uma cópia do DataFrame original df_renomeado = df.copy() # Corrigir espaços e renomear colunas diretamente no DataFrame completo df_renomeado.columns = df_renomeado.columns.str.strip() # Criar dicionário de renomeação para as colunas desejadas renomear_colunas = { 'Com que gênero você se identifica?': 'Gênero', 'Como você avalia a temperatura dentro do RU durante sua permanência?': 'Avaliação Temperatura', 'Você percebe o ambiente como abafado?': 'Ambiente Abafado', 'Na sua opinião, o ambiente do RU é bem ventilado?': 'Ventilação Avaliada', 'Você costuma evitar o RU em horários de pico devido ao desconforto térmico?': 'Evita Horários Pico', 'Você sente a presença de odores agradáveis ou desagradáveis?': 'Percepção de Odores' } # Aplicar renomeação mantendo o restante das colunas intacto df_filtered = df_renomeado.rename(columns=renomear_colunas) # Visualizar as primeiras colunas como confirmação
+
+'Você já sentiu algum desconforto físico (suor excessivo, dor de cabeça, cansaço, falta de ar) ao permanecer no RU?': 'Desconforto Físico',
+
+'Você nota diferenças de temperatura ou ventilação entre os diferentes ambientes do RU (entrada, fila, área de mesas)?': 'Diferença Ambientes',
+
+df_filtered.columns.tolist()
+
+# %%
+
+# Agrupar "Mulher Cis" e "Homem Trans" como "Mulher"
+
+df_rebase = df_filtered.copy()
+
+df_rebase['Gênero Agrupado'] = df_rebase['Gênero'].replace({ 'Mulher Cis': 'Mulher',
+
+49
+
+'Homem Trans': 'Mulher', 'Homem Cis': 'Homem'
+
+})
+
+# Manter os demais (Pessoa não binária, Prefiro não responder) como estão df_rebase.loc[~df_rebase['Gênero Agrupado'].isin(['Homem', 'Mulher']), 'Gênero Agrupado'] = df_rebase['Gênero']
+
+# Verificar resultado do agrupamento
+
+df_rebase['Gênero Agrupado'].value_counts()
+
+# %%
+
+# Separar os gêneros já agrupados como "Homem" e "Mulher" df_mulher = df_rebase[df_rebase['Gênero Agrupado'] == 'Mulher'].copy() df_homem = df_rebase[df_rebase['Gênero Agrupado'] == 'Homem'].copy()
+
+# Selecionar os gêneros "Pessoa não binária" e "Prefiro não responder" df_nd = df_rebase[df_rebase['Gênero Agrupado'].isin(['Pessoa não binária',
+
+'Prefiro não responder'])].copy()
+
+# Dividir igualmente entre "Homem" e "Mulher" half = len(df_nd) // 2 df_nd_homem = df_nd.iloc[:half].copy() df_nd_mulher = df_nd.iloc[half:].copy() df_nd_homem['Gênero Agrupado'] = 'Homem' df_nd_mulher['Gênero Agrupado'] = 'Mulher'
+
+# Concatenar todos
+
+df_final = pd.concat([df_mulher, df_homem, df_nd_homem, df_nd_mulher], ignore_index=True)
+
+# Verificar o novo balanço de gêneros
+
+df_final['Gênero Agrupado'].value_counts()
+
+# %%
+
+df_final['Avaliação Temperatura'].value_counts()
+
+# %%
+
+df_final['Avaliação Temperatura'] = df_final['Avaliação Temperatura'].str.strip().str.title() df_final['Avaliação Temperatura'] = df_final['Avaliação Temperatura'].replace({ 'Pouco Quente': 'Quente'
+
+})
+
+df_final['Avaliação Temperatura'].value_counts()
+
+# %%
+
+# Gerar a tabela cruzada para "Avaliação Temperatura" por "Gênero Agrupado" tabela_temp_genero = pd.crosstab( df_final['Gênero Agrupado'], df_final['Avaliação Temperatura'], normalize='index' ) * 100
+
+50
+
+tabela_temp_genero = tabela_temp_genero.round(1)
+
+# Garantir ordem das colunas ordem_colunas = ['Confortável', 'Quente', 'Muito Quente'] tabela_temp_genero = tabela_temp_genero.reindex(columns=ordem_colunas, fill_value=0)
+
+# Cores definidas
+
+cores_temp = { 'Confortável': '#4A90E2', 'Quente': '#F5C542', 'Muito Quente': '#E57373'
+
+}
+
+cores_barras = [cores_temp[col] for col in tabela_temp_genero.columns]
+
+# Criar gráfico
+
+import matplotlib.pyplot as plt
+
+ax = tabela_temp_genero.plot(kind='bar', stacked=True, figsize=(10,6), color=cores_barras) #plt.title('Avaliação da Temperatura no RU por Gênero')
+
+#plt.title('Avaliação da Temperatura no RU por Gênero') plt.xlabel('Gênero') plt.ylabel('% de Respostas') plt.legend(title='Avaliação') plt.xticks(rotation=0) plt.grid(True, axis='y')
+
+# Adicionar os valores percentuais nas barras
+
+for i, row in enumerate(tabela_temp_genero.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=8) y_offset += value
+
+plt.tight_layout()
+
+plt.show()
+
+# %%
+
+# Padronizar valores da coluna "Você percebe o ambiente como abafado?" coluna_abafado = 'Ambiente Abafado' df_final[coluna_abafado] = df_final[coluna_abafado].str.strip().str.title()
+
+# Criar tabela cruzada com proporção por gênero agrupado
+
+tabela_abafado_genero = pd.crosstab( df_final['Gênero Agrupado'], df_final[coluna_abafado], normalize='index' ) * 100 tabela_abafado_genero = tabela_abafado_genero.round(1)
+
+# Definir ordem e cores das categorias
+
+51
+
+ordem_abafado = ['Nunca', 'Às Vezes', 'Frequentemente', 'Sempre'] cores_abafado = { 'Nunca': '#4A90E2', # azul 'Às Vezes': '#F5C542', # amarelo 'Frequentemente': '#E57373', # vermelho suave 'Sempre': '#C44569' # vermelho mais escuro
+
+}
+
+# Garantir que todas as colunas estão presentes
+
+tabela_abafado_genero = tabela_abafado_genero.reindex(columns=ordem_abafado, fill_value=0) bar_colors = [cores_abafado[col] for col in tabela_abafado_genero.columns]
+
+# Gerar gráfico
+
+ax = tabela_abafado_genero.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors) #plt.title('Sensação de Abafamento no RU por Gênero')
+
+#plt.title('Sensação de Abafamento no RU por Gênero') plt.xlabel('Gênero') plt.ylabel('% de Respostas') plt.legend(title='Sensação de Abafamento') plt.xticks(rotation=0) plt.grid(True, axis='y')
+
+# Adicionar rótulos percentuais
+
+for i, row in enumerate(tabela_abafado_genero.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=8) y_offset += value
+
+plt.tight_layout()
+
+plt.show()
+
+# %%
+
+import seaborn as sns
+
+import matplotlib.pyplot as plt
+
+# Tabela cruzada: Horário de uso por gênero
+
+horario_por_genero = pd.crosstab( df_final['Gênero Agrupado'], df_final['Qual período você costuma ir ao RU?'], normalize='index' ).round(3) * 100 # Definir ordem e cores para os períodos ordem_horarios = sorted(horario_por_genero.columns.tolist()) # ordenação alfabética cores_horario = ['#4A90E2', '#F5C542', '#E57373', '#C44569', '#7B68EE', '#FFA07A'] # cores distintas
+
+horario_por_genero = horario_por_genero[ordem_horarios]
+
+# Reestruturar os dados para formato longo (ideal para gráfico de barras lado a lado)
+
+df_horario_long = horario_por_genero.reset_index().melt(id_vars='Gênero Agrupado',
+
+52
+
+var_name='Horário', value_name='% de Respostas')
+
+# Criar gráfico de barras lado a lado plt.figure(figsize=(10, 6)) sns.barplot(data=df_horario_long, x='Horário', y='% de Respostas', hue='Gênero Agrupado')
+
+plt.title('Horário de Uso do RU') plt.xlabel('Horário') plt.ylabel('% de Respostas') plt.xticks(rotation=45) plt.legend(title='Gênero') plt.tight_layout() plt.grid(True, axis='y')
+
+plt.show()
+
+# %%
+
+# Filtrar apenas os gêneros "Homem" e "Mulher" df_binario = df_final # Recalcular a tabela cruzada com base apenas nesses dois gêneros tabela_desconforto_binario = pd.crosstab( df_binario['Gênero Agrupado'], df_binario['Desconforto Físico'], normalize='index' ) * 100 tabela_desconforto_binario = tabela_desconforto_binario.round(1)
+
+ordem_desconforto = ['Sim', 'Não'] cores_desconforto = { 'Sim': '#E57373', 'Não': '#4A90E2' }
+
+tabela_desconforto_binario = tabela_desconforto_binario.reindex(columns=ordem_desconforto, fill_value=0)
+
+bar_colors_binario = [cores_desconforto[col] for col in tabela_desconforto_binario.columns]
+
+# Gerar gráfico empilhado
+
+ax = tabela_desconforto_binario.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors_binario) #plt.title('Desconforto Físico no RU por Gênero') plt.xlabel('Gênero') plt.ylabel('% de Respostas') plt.legend(title='Desconforto Físico') plt.xticks(rotation=0) plt.grid(True, axis='y')
+
+# Adicionar rótulos percentuais
+
+for i, row in enumerate(tabela_desconforto_binario.values):
+
+y_offset = 0
+
+for j, value in enumerate(row):
+
+53
+
+if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout()
+
+plt.show()
+
+# %%
+
+# %%
+
+# Verificar nome correto da coluna de horário
+
+coluna_horario = [col for col in df_final.columns if 'período'
+
+in col.lower() or 'horário' in col.lower()][0]
+
+coluna_desconforto = 'Desconforto Físico'
+
+# Padronizar os valores das colunas
+
+df_final[coluna_horario] = df_final[coluna_horario].str.strip().str.title()
+
+df_final[coluna_desconforto] = df_final[coluna_desconforto].str.strip().str.title()
+
+# Criar tabela cruzada entre horário e desconforto físico tabela_horario_desconforto = pd.crosstab( df_final[coluna_horario], df_final[coluna_desconforto], normalize='index' ) * 100
+
+tabela_horario_desconforto = tabela_horario_desconforto.round(1)
+
+# Garantir ordem das colunas
+
+ordem_desconforto = ['Sim', 'Não'] tabela_horario_desconforto = tabela_horario_desconforto.reindex(columns=ordem_desconforto, fill_value=0)
+
+# Cores
+
+cores_desconforto = {
+
+'Sim': '#E57373',
+
+'Não': '#4A90E2'
+
+}
+
+bar_colors = [cores_desconforto[col] for col in tabela_horario_desconforto.columns]
+
+# Plotar gráfico empilhado
+
+ax = tabela_horario_desconforto.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+#plt.title('Desconforto Físico por Horário de Uso do RU')
+
+plt.xlabel('Horário')
+
+plt.ylabel('% de Respostas')
+
+plt.legend(title='Desconforto Físico', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)
+
+plt.xticks(rotation=32)
+
+54
+
+plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_horario_desconforto.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout(rect=[0, 0, 0.8, 1]) # deixa espaço à direita para a legenda
+
+plt.show()
+
+# %%
+
+# Verificar nome correto da coluna de horário
+
+coluna_horario = [col for col in df_final.columns if 'período' in col.lower()
+
+or 'horário' in col.lower()][0]
+
+coluna_temperatura = 'Avaliação Temperatura'
+
+# Padronizar os valores das colunas
+
+df_final[coluna_horario] = df_final[coluna_horario].str.strip().str.title()
+
+df_final[coluna_temperatura] = df_final[coluna_temperatura].str.strip().str.title()
+
+# Criar tabela cruzada entre horário e desconforto físico tabela_horario_temperatura = pd.crosstab( df_final[coluna_horario], df_final[coluna_temperatura], normalize='index' ) * 100 tabela_horario_temperatura = tabela_horario_temperatura.round(1)
+
+# Garantir ordem das colunas
+
+ordem_colunas = ['Confortável', 'Quente', 'Muito Quente'] tabela_horario_temperatura = tabela_horario_temperatura.reindex(columns=ordem_colunas, fill_value=0)
+
+# Cores
+
+cores_temperatura = { 'Confortável': '#4A90E2', 'Quente': '#F5C542', 'Muito Quente': '#E57373'
+
+}
+
+bar_colors = [cores_temperatura[col] for col in tabela_horario_temperatura.columns]
+
+# Plotar gráfico empilhado
+
+ax = tabela_horario_temperatura.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+#plt.title('Avaliação da Temperatura por Horário de Uso do RU')
+
+plt.xlabel('Horário')
+
+55
+
+plt.ylabel('% de Respostas')
+
+plt.legend(title='Avaliação da Temperatura', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)
+
+plt.xticks(rotation=38)
+
+plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_horario_desconforto.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout(rect=[0, 0, 0.8, 1]) # deixa espaço à direita para a legenda plt.show()
+
+# %%
+
+df_final['Percepção de Odores'].value_counts()
+
+# %%
+
+# Verificar nome correto da coluna de horário
+
+coluna_horario = [col for col in df_final.columns if 'período' in col.lower()
+
+or 'horário' in col.lower()][0]
+
+coluna_odores = 'Percepção de Odores'
+
+# Padronizar os valores das colunas
+
+df_final[coluna_horario] = df_final[coluna_horario].str.strip().str.title() df_final[coluna_odores] = df_final[coluna_odores].str.strip().str.title()
+
+# Criar tabela cruzada entre horário e desconforto físico tabela_horario_odores = pd.crosstab( df_final[coluna_horario], df_final[coluna_odores], normalize='index' ) * 100 tabela_horario_odores = tabela_horario_odores.round(1)
+
+# Garantir ordem das colunas conforme os dados reais ordem_colunas = ['Não', 'Às Vezes', 'Sim']
+
+# Definir cores específicas para odores
+
+cores_odores = { 'Não': '#4A90E2', # azul 'Às Vezes': '#F5C542', # amarelo 'Sim': '#E57373' # vermelho suave }
+
+bar_colors = [cores_odores[col] for col in tabela_horario_odores.columns]
+
+# Plotar gráfico empilhado
+
+56
+
+ax = tabela_horario_odores.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+#plt.title('Percepção de Odores por Horário de Uso do RU')
+
+plt.xlabel('Horário')
+
+plt.ylabel('% de Respostas')
+
+plt.legend(title='Percepção de Odores', bbox_to_anchor=(1.02, 1), loc='upper left',
+
+borderaxespad=0.)
+
+plt.xticks(rotation=35)
+
+plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_horario_odores.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout(rect=[0, 0, 0.8, 1]) # deixa espaço à direita para a legenda plt.show()
+
+# %% [markdown]
+
+# Fazer agora com evitar horarios de picos x horario
+
+# %%
+
+df['Você costuma evitar o RU em horários de pico devido ao desconforto térmico?'].value_counts
+
+# %%
+
+# Verificar nome correto da coluna de horário
+
+coluna_horario = [col for col in df_final.columns if 'período' in col.lower()
+
+or 'horário' in col.lower()][0]
+
+coluna_pico = 'Evita Horários Pico'
+
+# Padronizar os valores das colunas
+
+df_final[coluna_horario] = df_final[coluna_horario].str.strip().str.title() df_final[coluna_pico] = df_final[coluna_pico].str.strip().str.title()
+
+# Criar tabela cruzada entre horário e desconforto físico tabela_horario_pico = pd.crosstab( df_final[coluna_horario], df_final[coluna_pico], normalize='index' ) * 100 tabela_horario_pico = tabela_horario_pico.round(1)
+
+# Garantir ordem das colunas
+
+ordem_colunas = ['Sim', 'Não'] tabela_horario_pico = tabela_horario_pico.reindex(columns=ordem_colunas, fill_value=0)
+
+# Cores
+
+57
+
+cores_pico = { 'Sim': '#4A90E2', 'Não': '#E57373' }
+
+bar_colors = [cores_pico[col] for col in tabela_horario_pico.columns]
+
+# Plotar gráfico empilhado ax = tabela_horario_pico.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors) #plt.title('Evitar Horário de pico') plt.xlabel('Horário') plt.ylabel('% de Respostas') plt.legend(title='Evitar Horário de pico', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.) plt.xticks(rotation=45) plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_horario_pico.values):
+
+y_offset = 0
+
+for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout(rect=[0, 0, 0.8, 1]) # deixa espaço à direita para a legenda plt.show()
+
+# %%
+
+# Definir nome da coluna de interesse
+
+coluna_evita_pico = 'Evita Horários Pico'
+
+# Padronizar os valores
+
+df_final[coluna_horario] = df_final[coluna_horario].str.strip().str.title() df_final[coluna_evita_pico] = df_final[coluna_evita_pico].str.strip().str.title()
+
+# Criar tabela cruzada entre horário e resposta sobre evitar horários de pico
+
+tabela_evita_pico_horario = pd.crosstab(
+
+df_final[coluna_horario],
+
+df_final[coluna_evita_pico],
+
+normalize='index'
+
+) * 100
+
+tabela_evita_pico_horario = tabela_evita_pico_horario.round(1)
+
+# Definir ordem e cores
+
+ordem_evita = ['Sim', 'Não'] cores_evita = { 'Sim': '#E57373', # vermelho suave 'Não': '#4A90E2' # azul
+
+}
+
+tabela_evita_pico_horario = tabela_evita_pico_horario.reindex(columns=ordem_evita,
+
+58
+
+fill_value=0)
+
+bar_colors = [cores_evita[col] for col in tabela_evita_pico_horario.columns]
+
+# Gerar gráfico empilhado
+
+ax = tabela_evita_pico_horario.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+plt.xlabel('Horário') plt.ylabel('% de Respostas')
+
+plt.legend(title='Evita Horários de Pico', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)
+
+plt.xticks(rotation=45)
+
+plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_evita_pico_horario.values):
+
+y_offset = 0
+
+for j, value in enumerate(row):
+
+if value > 0:
+
+plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center',
+
+va='center', fontsize=9)
+
+y_offset += value
+
+plt.tight_layout(rect=[0, 0, 0.8, 1]) # deixa espaço à direita para a legenda plt.show()
+
+# %%
+
+# Filtrar apenas os gêneros "Homem" e "Mulher" df_binario = df_final # Recalcular a tabela cruzada com base apenas nesses dois gêneros tabela_desconforto_binario = pd.crosstab( df_binario['Com que frequência você vai ao RU?'], df_binario['Desconforto Físico'], normalize='index' ) * 100 tabela_desconforto_binario = tabela_desconforto_binario.round(1) ordem_desconforto = ['Sim', 'Não'] cores_desconforto = { 'Sim': '#E57373',
+
+'Não': '#4A90E2'
+
+}
+
+tabela_desconforto_binario = tabela_desconforto_binario.reindex(columns=ordem_desconforto, fill_value=0)
+
+bar_colors_binario = [cores_desconforto[col]
+
+for col in tabela_desconforto_binario.columns]
+
+# Gerar gráfico empilhado
+
+ax = tabela_desconforto_binario.plot(kind='bar', stacked=True, figsize=(10,6),
+
+59
+
+color=bar_colors_binario)
+
+plt.xlabel('Frequência no RU') plt.ylabel('% de Respostas') plt.legend(title='Desconforto Físico', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.) plt.xticks(rotation=0) plt.grid(True, axis='y')
+
+# Adicionar rótulos percentuais
+
+for i, row in enumerate(tabela_desconforto_binario.values):
+
+y_offset = 0
+
+for j, value in enumerate(row):
+
+if value > 0:
+
+plt.text(i, y_offset + value / 2, f'{value:.1f}%',
+
+ha='center', va='center', fontsize=9)
+
+y_offset += value
+
+plt.tight_layout(rect=[0, 0, 0.8, 1]) # deixa espaço à direita para a legenda plt.show()
+
+# %%
+
+# Filtrar apenas os gêneros "Homem" e "Mulher" df_binario = df_final # Recalcular a tabela cruzada com base apenas nesses dois gêneros tabela_desconforto_binario = pd.crosstab( df_binario['Com que frequência você vai ao RU?'], df_binario['Avaliação Temperatura'], normalize='index' ) * 100 tabela_desconforto_binario = tabela_desconforto_binario.round(1)
+
+ordem_colunas = ['Confortável', 'Quente', 'Muito Quente']
+
+# Cores cores_temperatura = { 'Confortável': '#4A90E2', 'Quente': '#F5C542', 'Muito Quente': '#E57373' } bar_colors = [cores_temperatura[col]
+
+for col in tabela_horario_temperatura.columns]
+
+tabela_desconforto_binario = tabela_desconforto_binario.reindex(columns=ordem_colunas, fill_value=0)
+
+# Gerar gráfico empilhado
+
+ax = tabela_desconforto_binario.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors) plt.title('Desconforto Físico no RU por Frequência no RU') plt.xlabel('Frequência no RU') plt.ylabel('% de Respostas') plt.legend(title='Desconforto Físico')
+
+ax = tabela desconforto binario.plot (kind='bar', stacked=True,
+
+plt.legend(title='Desconforto Físico')
+
+60
+
+plt.xticks(rotation=0)
+
+plt.grid(True, axis='y') # Adicionar rótulos percentuais for i, row in enumerate(tabela_desconforto_binario.values): y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout()
+
+plt.show()
+
+# %%
+
+df_binario['Ambiente Abafado'].value_counts()
+
+# %%
+
+# Garantir que a coluna de frequência esteja padronizada coluna_frequencia = 'Com que frequência você vai ao RU?' df[coluna_frequencia] = df[coluna_frequencia].astype(str).str.strip().str.title()
+
+# Contar número de respostas por categoria
+
+frequencia_contagem = df[coluna_frequencia].value_counts().sort_index()
+
+# Plotar gráfico de barras
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10,6))
+
+frequencia_contagem.plot(kind='bar', color='#4A90E2')
+
+plt.xlabel('Frequência') plt.ylabel('Número de Pessoas') plt.xticks(rotation=0) plt.grid(axis='y') plt.tight_layout() plt.show()
+
+# %%
+
+# Garantir que os dados estejam padronizados
+
+coluna_abafado = 'Ambiente Abafado'
+
+df_final[coluna_abafado] = df_final[coluna_abafado].astype(str).str.strip().str.title()
+
+# Contagem de respostas por categoria
+
+abafado_contagem = df_final[coluna_abafado].value_counts().sort_index()
+
+# Plotar gráfico de barras
+
+plt.figure(figsize=(8,6)) abafado_contagem.plot(kind='bar', color='#E57373') plt.xlabel('Resposta') plt.ylabel('Número de Pessoas')
+
+61
+
+plt.xticks(rotation=0) plt.grid(axis='y') plt.tight_layout() plt.show()
+
+# %%
+
+# Padronizar valores da coluna "Você percebe o ambiente como abafado?" coluna_abafado = 'Ambiente Abafado' df_final[coluna_abafado] = df_final[coluna_abafado].str.strip().str.title()
+
+# Criar tabela cruzada com proporção por gênero agrupado
+
+tabela_abafado_frequencia = pd.crosstab(
+
+df_final['Com que frequência você vai ao RU?'],
+
+df_final[coluna_abafado],
+
+normalize='index'
+
+) * 100
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.round(1)
+
+# Definir ordem e cores das categorias
+
+ordem_abafado = ['Nunca', 'Às Vezes', 'Frequentemente', 'Sempre'] cores_abafado = { 'Nunca': '#4A90E2', # azul 'Às Vezes': '#F5C542', # amarelo 'Frequentemente': '#E57373', # vermelho suave 'Sempre': '#C44569' # vermelho mais escuro }
+
+# Garantir que todas as colunas estão presentes
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.reindex(columns=ordem_abafado, fill_value=0)
+
+bar_colors = [cores_abafado[col] for col in tabela_abafado_frequencia.columns]
+
+# Gerar gráfico
+
+ax = tabela_abafado_frequencia.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+plt.xlabel('Frequência')
+
+plt.ylabel('% de Respostas')
+
+plt.legend(title='Sensação de Abafamento', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)
+
+plt.xticks(rotation=35)
+
+plt.grid(True, axis='y')
+
+# Adicionar rótulos percentuais
+
+for i, row in enumerate(tabela_abafado_frequencia.values):
+
+y_offset = 0
+
+for j, value in enumerate(row):
+
+if value > 0:
+
+plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center',
+
+fontsize=8)
+
+y_offset += value
+
+62
+
+plt.tight_layout(rect=[0, 0, 0.85, 1]) # deixa espaço à direita para a legenda
+
+plt.show()
+
+# %%
+
+df['Você sente a presença de odores agradáveis ou desagradáveis?'].value_counts()
+
+# %%
+
+# Padronizar valores da coluna "Você percebe o ambiente como abafado?" coluna_abafado = 'Percepção de Odores' df_final[coluna_abafado] = df_final[coluna_abafado].str.strip().str.title()
+
+# Criar tabela cruzada com proporção por gênero agrupado
+
+tabela_abafado_frequencia = pd.crosstab(
+
+df_final['Com que frequência você vai ao RU?'],
+
+df_final[coluna_abafado],
+
+normalize='index'
+
+) * 100
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.round(1)
+
+# Definir ordem e cores das categorias
+
+ordem_abafado = ['Às Vezes', 'Sim', 'Não'] cores_abafado = { 'Nunca': '#4A90E2', # azul 'Às Vezes': '#F5C542', # amarelo 'Frequentemente': '#E57373', # vermelho suave 'Sempre': '#C44569' # vermelho mais escuro }
+
+# Garantir que todas as colunas estão presentes
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.reindex(columns=ordem_abafado,
+
+fill_value=0)
+
+bar_colors = [cores_abafado[col] for col in tabela_abafado_frequencia.columns]
+
+# Gerar gráfico
+
+ax = tabela_abafado_frequencia.plot(kind='bar', stacked=True, figsize=(10,6),
+
+color=bar_colors)
+
+plt.title('Sensação de Abafamento no RU por Frequência')
+
+plt.xlabel('Frequência')
+
+plt.ylabel('% de Respostas')
+
+plt.legend(title='Sensação de Abafamento')
+
+plt.xticks(rotation=0)
+
+plt.grid(True, axis='y')
+
+# Adicionar rótulos percentuais
+
+for i, row in enumerate(tabela_abafado_frequencia.values):
+
+y_offset = 0
+
+for j, value in enumerate(row):
+
+if value > 0:
+
+plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=8) y_offset += value
+
+63
+
+plt.tight_layout() plt.show()
+
+# %%
+
+# Garantir nomes corretos das colunas coluna_horario = 'Com que frequência você vai ao RU?' coluna_odor = 'Percepção de Odores'
+
+# Padronizar os valores
+
+df_final[coluna_horario] = df_final[coluna_horario].astype(str).str.strip().str.title() df_final[coluna_odor] = df_final[coluna_odor].astype(str).str.strip().str.title()
+
+# Criar tabela cruzada entre horário e percepção de odores tabela_odor_horario = pd.crosstab( df_final[coluna_horario], df_final[coluna_odor], normalize='index' ) * 100 tabela_odor_horario = tabela_odor_horario.round(1)
+
+# Definir ordem e cores (baseado nos valores que você confirmou antes) ordem_odor = ['Não', 'Às Vezes', 'Sim'] cores_odor = { 'Não': '#4A90E2', 'Às Vezes': '#F5C542', 'Sim': '#E57373'
+
+}
+
+# Reorganizar e aplicar cores
+
+tabela_odor_horario = tabela_odor_horario.reindex(columns=ordem_odor, fill_value=0) bar_colors = [cores_odor[col] for col in tabela_odor_horario.columns]
+
+# Plotar gráfico empilhado
+
+ax = tabela_odor_horario.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+plt.xlabel('Horário') plt.ylabel('% de Respostas') plt.legend(title='Percepção de Odores', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.) plt.xticks(rotation=20) plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_odor_horario.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+64
+
+plt.tight_layout(rect=[0, 0, 0.85, 1]) # deixa espaço à direita para a legenda
+
+plt.show()
+
+# %%
+
+# Padronizar valores da coluna "Você percebe o ambiente como abafado?" coluna_abafado = 'Ambiente Abafado'
+
+df_final[coluna_abafado] = df_final[coluna_abafado].str.strip().str.title()
+
+# Criar tabela cruzada com proporção por gênero agrupado
+
+tabela_abafado_frequencia = pd.crosstab(
+
+df_final['Com que frequência você vai ao RU?'],
+
+df_final[coluna_abafado],
+
+normalize='index'
+
+) * 100
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.round(1)
+
+# Definir ordem e cores das categorias
+
+ordem_abafado = ['Nunca', 'Às Vezes', 'Frequentemente', 'Sempre'] cores_abafado = { 'Nunca': '#4A90E2', # azul 'Às Vezes': '#F5C542', # amarelo 'Frequentemente': '#E57373', # vermelho suave 'Sempre': '#C44569' # vermelho mais escuro }
+
+# Garantir que todas as colunas estão presentes
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.reindex(columns=ordem_abafado,
+
+fill_value=0) bar_colors = [cores_abafado[col] for col in tabela_abafado_frequencia.columns] # Gerar gráfico ax = tabela_abafado_frequencia.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors) plt.title('Sensação de Abafamento no RU por Frequência') plt.xlabel('Frequência') plt.ylabel('% de Respostas') plt.legend(title='Sensação de Abafamento') plt.xticks(rotation=0) plt.grid(True, axis='y') # Adicionar rótulos percentuais for i, row in enumerate(tabela_abafado_frequencia.values): y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=8) y_offset += value
+
+plt.tight_layout()
+
+65
+
+plt.show()
+
+# %%
+
+# Padronizar valores da coluna "Você percebe o ambiente como abafado?" coluna_abafado = 'Ambiente Abafado' df_final[coluna_abafado] = df_final[coluna_abafado].str.strip().str.title()
+
+# Criar tabela cruzada com proporção por gênero agrupado
+
+tabela_abafado_frequencia = pd.crosstab(
+
+df_final['Com que frequência você vai ao RU?'],
+
+df_final[coluna_abafado],
+
+normalize='index'
+
+) * 100
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.round(1)
+
+# Definir ordem e cores das categorias
+
+ordem_abafado = ['Nunca', 'Às Vezes', 'Frequentemente', 'Sempre'] cores_abafado = { 'Nunca': '#4A90E2', # azul 'Às Vezes': '#F5C542', # amarelo 'Frequentemente': '#E57373', # vermelho suave 'Sempre': '#C44569' # vermelho mais escuro }
+
+# Garantir que todas as colunas estão presentes
+
+tabela_abafado_frequencia = tabela_abafado_frequencia.reindex(columns=ordem_abafado, fill_value=0)
+
+bar_colors = [cores_abafado[col] for col in tabela_abafado_frequencia.columns]
+
+# Gerar gráfico ax = tabela_abafado_frequencia.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors) plt.title('Sensação de Abafamento no RU por Gênero') plt.xlabel('Gênero') plt.ylabel('% de Respostas') plt.legend(title='Sensação de Abafamento') plt.xticks(rotation=0) plt.grid(True, axis='y') # Adicionar rótulos percentuais for i, row in enumerate(tabela_abafado_frequencia.values): y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=8) y_offset += value
+
+plt.tight_layout()
+
+plt.show()
+
+# %%
+
+66
+
+# Verificar nome correto da coluna de horário
+
+coluna_horario = [col for col in df_final.columns if 'período'
+
+in col.lower() or 'horário' in col.lower()][0]
+
+coluna_temperatura = 'Avaliação Temperatura'
+
+# Padronizar os valores das colunas
+
+df_final[coluna_horario] = df_final[coluna_horario].str.strip().str.title() df_final[coluna_temperatura] = df_final[coluna_temperatura].str.strip().str.title()
+
+# Criar tabela cruzada entre horário e desconforto físico tabela_horario_temperatura = pd.crosstab( df_final[coluna_horario], df_final[coluna_temperatura], normalize='index' ) * 100 tabela_horario_temperatura = tabela_horario_temperatura.round(1)
+
+# Garantir ordem das colunas
+
+ordem_colunas = ['Confortável', 'Quente', 'Muito Quente'] tabela_horario_temperatura = tabela_horario_temperatura.reindex(columns=ordem_colunas, fill_value=0)
+
+# Cores
+
+cores_temperatura = { 'Confortável': '#4A90E2', 'Quente': '#F5C542', 'Muito Quente': '#E57373'
+
+}
+
+bar_colors = [cores_temperatura[col] for col in tabela_horario_temperatura.columns]
+
+# Plotar gráfico empilhado
+
+ax = tabela_horario_temperatura.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors)
+
+plt.title('Avaliação da Temperatura por Horário de Uso do RU') plt.xlabel('Horário') plt.ylabel('% de Respostas') plt.legend(title='Avaliação da Temperatura') plt.xticks(rotation=45) plt.grid(True, axis='y')
+
+# Adicionar rótulos de porcentagem
+
+for i, row in enumerate(tabela_horario_desconforto.values):
+
+y_offset = 0 for j, value in enumerate(row): if value > 0: plt.text(i, y_offset + value / 2, f'{value:.1f}%', ha='center', va='center', fontsize=9) y_offset += value
+
+plt.tight_layout()
+
+plt.show()
+
+67
+
+68
+

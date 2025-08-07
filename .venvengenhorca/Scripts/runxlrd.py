@@ -1,4 +1,4 @@
-#!C:\Users\Orçamento\ONE DRIVE ORCAMENTO\OneDrive - GRUPO RETEC\02. Engenharia\IA\ENGENHORCA\.venvengenhorca\Scripts\python.exe
+#!C:\Users\Arthu\OneDrive\Área de Trabalho\Projetos IA\ENGENHORCA\.venvengenhorca\Scripts\python.exe
 # Copyright (c) 2005-2012 Stephen John Machin, Lingfo Pty Ltd
 # This script is part of the xlrd package, which is released under a
 # BSD-style licence.
