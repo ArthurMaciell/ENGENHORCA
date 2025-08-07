@@ -11,6 +11,7 @@ langchain-community
 langchain-openai
 langchain-groq
 huggingface_hub[hf_xet]
+sentence-transformers
 
 # Vector DB and tokenizer
 chromadb

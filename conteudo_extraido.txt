@@ -318,13 +318,13 @@ A ventilação diluidora tem como objetivo manter a concentração de poluentes 
 
 em locais onde a arquitetura contribuí com a ventilação. A sua eficácia pode ser variável depen- dendo de fatores externos e que não é possível controlar como a direção e velocidade do vento, o que dificulta o controle do conforto térmico e da qualidade do ar interno.
 
-O,
+o
 
 Figura 2.1: Ventilação Diluidora Natural
 
 Na ventilação diluidora forçada é usado ventiladores, exaustores e difusores de ar para promo- ver a movimentação do ar, garantindo uma taxa de renovação independente de fatores externos. Esses sistemas também possibilitam a utilização de filtros, controle de temperatura e umidade e a aplicação de sensores de CO² para monitoramento da qualidade do ar.
 
-A entrada de ar é deficiente Entrada de ar regular Tubo de distribuição vertical Melhor entrada de ar Entrada de ar melhorada Melhor entrada de ar
+A entrada de ar é deficiente Entrada de ar regular Tubo de distribuicao vertical Melhor entrada de ar Entrada de ar methorada Melhor entrada de ar
 
 Figura 2.2: Ventilação Diluidora Forçada
 
@@ -422,7 +422,7 @@ Esse método foi consolidado na década de 1970 e 1990 com os estudos de Humphre
 
 Tconf = 0.31 ⋅ Textmdia + 17.8
 
-Teonf = 0.31: Tostdia + 17.8 (3.1)
+Teons = 0-31 + Text,dia + 17.8 (3.1)
 
 Essa fórmula evidencia que quanto mais quente o ambiente externo maior é a temperatura aceitável internamente. A norma define faixas aceitáveis em torno da temperatura neutra: 2,5°C a cima ou abaixo para 90% de aceitação e 3,5°C a cima ou abaixo para 80% de aceitação.
 
@@ -430,9 +430,9 @@ Essa fórmula evidencia que quanto mais quente o ambiente externo maior é a tem
 
 (3.1)
 
-32 50F 59F 68F TF ser 95F 30 86.0F o? 82.4F E 26 78.8 F 2 E o 24 75.2F e E] o 5 22 + = - T1.6F =) | 90% de aceitabilidade 5 20 68.0 F 3 2 18 | 80% de aceitabilidade 64.4 F o F 46 60.8 F 14 5 10 15 20 25 30 35 Temperatura externa média predominante (°C)
+32 50F 59F 68F 77F 86 F 95F 30 86.0 F g ? 82.4F É 26 78.8 F 2 £ w 24 75.2F É & o ã 22+ = : T1.6F — 90% de aceitabilidade 5 20 68.0F F 2 18 | 80% de aceitabilidade 64.4 F v 6 60.8 F 14 5 10 15 20 25 30 35 Temperatura externa média predominante (°C)
 
-32 50F 59F 68F TF ser 95F 30 86.0F o? 82.4F E 26 78.8 F 2 E o 24 75.2F e E] o 5 22 + = - T1.6F =) | 90% de aceitabilidade 5 20 68.0 F 3 2 18 | 80% de aceitabilidade 64.4 F o F 46 60.8 F 14 5 10 15 20 25 30 35 Temperatura externa média predominante (°C)
+32 50F 59F 68F 77F 86 F 95F 30 86.0 F g ? 82.4F É 26 78.8 F 2 £ w 24 75.2F É & o ã 22+ = : T1.6F — 90% de aceitabilidade 5 20 68.0F F 2 18 | 80% de aceitabilidade 64.4 F v 6 60.8 F 14 5 10 15 20 25 30 35 Temperatura externa média predominante (°C)
 
 Figura 3.1: Conforto Térmico Adaptativo
 
@@ -490,7 +490,7 @@ gritante de conforto térmico entre áreas bem próximas.
 
 Figura 4.6: Parte fria Interna refeitório
 
-_ $23.4C fee
+— $23.4C fee
 
 Figura 4.7: Parte fria Interna refeitório câmera térmica
 
@@ -526,7 +526,7 @@ Figura 4.12: Banho-maria
 
 Além do aumento da umidade relativa do ar, foi possível observar também a condensação de vapor sobre a cobertura de vidro da ilha, como visto na figura abaixo. Essa condensação indica que o vapor está saturando o ar local, o que contribui significativamente para a sensação de abafamento reportada pelos usuários na pesquisa de satisfação. Além disso, o vapor acumulado tende a aumentar a temperatura radiante local e comprometer a renovação natural do ar, agravando o desconforto físico, especialmente em horários de pico.
 
-DN E
+Ti ”
 
 Figura 4.13: Vidro Banho-Maria
 
@@ -538,7 +538,7 @@ está o maior problema de transferência de calor.
 
 Figura 4.14: Ilha de Banho-Maria
 
-2 19.3°C 42.2
+2 19.8ºC 42.2
 
 Figura 4.15: Banho-Maria câmera térmica
 
@@ -554,7 +554,7 @@ Figura 4.16: Área de distribuição de comida
 
 Dentro do restaurante também há outras fontes de calor que podem contribuir para que o conforto térmico dos usuários seja afetado. Sendo eles as máquinas de sucos.
 
-BESC] t
+S J
 
 Figura 4.17: Máquina de Suco
 
@@ -650,7 +650,7 @@ Os gráficos mostram uma análise estatística das respostas dos usuários, perm
 
 29
 
-20.0 17.5 e o “ o a o Número de pessoas a a 5.0 25 0.0 +
+20.0 17.5 = S E s a -) Número de pessoas ~ a 5.0 25 0.0 +
 
 Figura 4.22: Frequência das Idades
 
@@ -658,7 +658,7 @@ O gráfico de idade revela que a maioria dos usuários do Restaurante Universit�
 
 A ISO 7730 (2005) também destaca que pessoas mais jovens, principalmente em estado de atividade leve a moderada, podem sentir o ambiente como mais quentes do que indivíduos mais velhos, devido à sua produção de calor corporal ser mais elevada.
 
-60 8 8 Numero de Pessoas 142 Vezes Na Semana 3 A4 Vezes Na Semana Raramente Todos Os Dias (5 Ou +) Frequência
+60 8 8 Numero de Pessoas 1 A 2 Vezes Na Semana 3 A 4 Vezes Na Semana Raramente Todos Os Dias (5 Ou +) Frequéncia
 
 Figura 4.23: Frequência de Uso do RU
 
@@ -668,7 +668,7 @@ Foi-se levantado também a frequência que os usuários vão ao RU. Esse dado é
 
 já que mostra a relevância do restaurante e também necessário para cruzar os dados e dar mais relevância aos dados das pessoas que frequentam mais o local. O gráfico da Figura 4.23 indica que a maioria das pessoas que vão no RU frequentam o local todos os dias ou de 3 a 4 vezes na semana.
 
-804 «04 % de Respostas 204 Desconforto Fisico = Sim mem Não Homem Mulher Gênero
+804 «04 % de Respostas 204 Desconforto Fisico m= sim mm Nao Homem Mulher Gênero
 
 Figura 4.24: Gênero x Desconforto Físico
 
@@ -682,7 +682,7 @@ Figura 4.25: Frequência de Ambiente Abafado
 
 A sensação de abafamento foi uma das principais motivações desse trabalho. O gráfico acima trás mais um indicio de que realmente há um problema de umidade no local. Causando a sensação de abafamento, tanto pela presença da ilha de banho-maria quanto pela grande quantidade de pessoas no local.
 
-Sensação de Abafamento 100 mm Nunca mem Às Vezes mem Frequentemente so mm Sempre 60 40 20 o Frequência % de Respostas
+Sensação de Abafamento 100 mm Nunca mmm As Vezes mmm Frequentemente 80 mmm Sempre 60 40 20 o Frequência % de Respostas
 
 Figura 4.26: Frequência x Abafamento
 
@@ -690,13 +690,13 @@ A partir do cruzamento entre os dados de frequência e a sensação de abafament
 
 32
 
-Desconforto Físico 100 mes sim mm Não 80 60 % de Respostas 20 o 1a 2 vezes na semaha 4 vezes na semana Raramente Todos os dias (5 ou +) Frequência no RU
+Desconforto Físico 100 mm sim mmm Nao 80 60 % de Respostas 20 o 1 a 2 vezes na semaha 4 vezes na semana — Raramente — Todos os dias (5 ou +) Frequência no RU
 
 Figura 4.27: Horário x Desconforto físico
 
 O gráfico da Figura 4.27 mostra a relação entre a frequência de uso do RU e a percepção de desconforto físico. Nota-se que os usuários que frequentam o restaurante universitário de 3 a 4 vezes por semana (70,6%) e todos os dias (60,6%) relataram, com maior frequência, a ocorrência de desconforto físico. Essa tendência reforça os indícios de que o ambiente apresenta deficiências de ventilação e controle térmico.
 
-804 «04 % de Respostas 204 Avaliação mem Confortável mem Quente mm Muito Quente Homem Mulher Gênero
+804 «04 % de Respostas 204 Avaliação mem Confortavel m Quente mEm Muito Quente Homem Mulher Gênero
 
 Figura 4.28: Gênero X Avaliação da Temperatura
 
@@ -706,7 +706,7 @@ Esses dados sugerem que mulheres tendem a sentir mais desconforto térmico do qu
 
 conforto relatada também é inferior.
 
-100 so 60 % de Respostas 40 sensação de Abafameno Nunca 20 — mes Às Vezes mem Frequentemente mem Sempre Mulher Gênero
+100 so 60 % de Respostas 40 Sensagao de Abafameno Nunca 20 — mem As Vezes mem Frequentemente mmm Sempre Mulher Genero
 
 Figura 4.29: Gênero x Sensação de Abafamento
 
@@ -718,25 +718,25 @@ A Figura 4.30 abaixo mostra que a percepção de odores no RU é recorrente entr
 
 34
 
-Percepção de Odores 100 mm Não mes Às Vezes mm Sim 80 60 40 20 0 ce? goo ov*) % de Respostas an? Ne a oe 5 as! que caos os que we 4h Ela Horário
+Percepção de Odores 100 WEm Nao mem As Vezes mem sim 80 60 40 20 o ce? goo ov*) % de Respostas a0 Ne a oe ó as aver? o os new? we 1h 3k Horário
 
 Figura 4.30: Gráfico do Odores x Frequência
 
 O gráfico abaixo mostra mais um ponto de desfuncionalidade na ventilação do ambiente, sendo agravado na parte da noite, onde a presença de odores é bem significativa. Sendo o horário da manhã o menos agravante já que teve o período da madruga e começo da manhã inteiro para diluir os odores no ar.
 
-mm Não mm Sim mes Às Vezes as wr’ wr oN a oN E ss a as 100 80 60 40 20 o Ra Percepção de Odores % de Respostas Horário
+mm Nao mee Sim mm As Vezes wr” wr’ wr oN o” oN " S ª»º“'º S 100 80 60 40 20 o vw Percepcaéo de Odores % de Respostas Horario
 
 Figura 4.31: Gráfico do Odores x Horário de Uso
 
 35
 
-Avaliação da Temperatura mem Confortável mes Quente mm Muito Quente sé ve wr Horário % de Respostas 100 80 60 40 20 £ o a wo 3 wv o
+Avaliação da Temperatura mem Confortavel m Quente mEm Muito Quente a ve wr Horario % de Respostas 100 80 60 40 20 e KS º &“ 3 wv -)
 
 Figura 4.32: Horário x Avaliação Temperatura
 
 A Figura 4.32 mostra uma predominância de respostas indicando sensação de ambiente "Quente"ou "Muito Quente"nos períodos que incluem o almoço, o que já era esperado devido à temperatura externa mais elevada nesse horário e ao maior fluxo de pessoas dentro do refeitório. No entanto, um dado interessante é que a noite também apresenta uma parcela relevante de desconforto tér- mico, mesmo sendo durante o inverno. Isso pode indicar que o calor acumulado durante o dia não está sendo dissipado adequadamente, revelando falhas no sistema de ventilação e exaustão, o que reforça a ideia de que o desconforto térmico não está limitado a picos de temperatura externa, mas sim à ineficiência da ventilação do ambiente.
 
-Desconforto Físico 100 E sim mm Não 80 60 40 20 aw? e Rol w® wr % de Respostas o - ea as Eu nº
+Desconforto Físico 100 mEmm sim mmm Não 80 60 40 20 aw? : ow o” wr % de Respostas o A o RS «&ª o
 
 Figura 4.33: Horário x Desconforto Físico
 
@@ -748,7 +748,7 @@ Esses dados sugerem que, no período da noite, o RU pode ter uma percepção men
 
 A tentativa de evitar horários de pico nos períodos diurnos reforça a percepção de desconforto associada ao alto número de pessoas, e pode indicar que os próprios usuários adotam estratégias adaptativas comportamentais — como recomendado por estudos de conforto adaptativo (NICOL & HUMPHREYS, 2002; ASHRAE 55).
 
-Evita Horários de Pico 100 - mm sim mem Não 80 60 40 20 [o R e a % de Respostas Horário
+Evita Horarios de Pico 100 ; mee sim mmm Nao 80 60 40 20 o K ç +º É % de Respostas Horário
 
 Figura 4.34: Horário x Horário de Pico
 
@@ -872,7 +872,7 @@ Já a temperatura média externa foi calculada através da média de temperatura
 
 43
 
-Operative Temperature [ºC] 16 © 14 10 12 a ee 18 20 22 24 2 28 30 32 Prevailing Mean Outdoor Temperature [°C]
+Operative Temperature [°C] 16 © 14 10 12 a ee 18 20 22 24 2 28 30 32 Prevailing Mean Outdoor Temperature [°C]
 
 Figura 5.1: Conforto Adaptativo médio
 
@@ -926,7 +926,7 @@ I. ANEXO I - Flayer para Questionário da Avaliação do Conforto térmico
 
 O Flayer abaixo foi colocado em lugares estratégicos da Universidade para que fosse respon- dido pelo maior número de pessoas.
 
-PESQUIGALHA PARA GRADUAÇÃO i AVALIAÇÃO DO CONFORTO EE TÉRMICO E VENTILAÇÃO NO RESTAURANTE UNIVERSITÁRIO
+PEngISA PARA GBADUAÇAO 1 AVALIAÇÃO DO CONFORTO W.TERMICO E VENTILAÇÃO NO RESTAURANTE UNIVERSITÁRIO
 
 Figura I.1: Flayer para respostas
 
@@ -1476,7 +1476,7 @@ tabela_desconforto_binario = tabela_desconforto_binario.reindex(columns=ordem_co
 
 ax = tabela_desconforto_binario.plot(kind='bar', stacked=True, figsize=(10,6), color=bar_colors) plt.title('Desconforto Físico no RU por Frequência no RU') plt.xlabel('Frequência no RU') plt.ylabel('% de Respostas') plt.legend(title='Desconforto Físico')
 
-ax = tabela desconforto binario.plot (kind='bar', stacked=True,
+ax = tabela_desconforto_binario.plot (kind='bar', stacked=True,
 
 plt.legend(title='Desconforto Físico')
 
