@@ -43,3 +43,7 @@ def add_documents(retriever, vs, extracted, doc_path, summaries=None):
     # pai (original bruto) — útil se quiser recuperar “inteiros”
     retriever.docstore.mset([(doc_id, {"path": doc_path})])
     vs.persist()
+
+
+
+    

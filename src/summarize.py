@@ -7,7 +7,7 @@ import time
 def build_summarizer(cfg):
     model = ChatGroq(
         api_key=cfg["env"]["GROQ_API_KEY"],
-        temperature=0.2,
+        temperature=0.5,
         model=cfg["llm"]["model"],
     )
     
