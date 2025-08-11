@@ -1,6 +1,6 @@
 import os, uuid
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
 from langchain.storage import InMemoryStore
 from langchain.schema import Document
 from langchain.retrievers.multi_vector import MultiVectorRetriever
