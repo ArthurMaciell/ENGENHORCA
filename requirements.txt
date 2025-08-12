@@ -1,21 +1,12 @@
-# Document parsing
-unstructured[all-docs]
-lxml
-pillow
-python-magic-bin
-pytesseract
 
-# LangChain + RAG
-langchain
-langchain-community
-langchain-openai
-langchain-groq
-huggingface_hub[hf_xet]
-sentence-transformers
 
-# Vector DB and tokenizer
-chromadb
-tiktoken
 
-# Environment management
+ctransformers==0.2.5
+sentence-transformers==2.2.2
+pinecone-client==2.2.4
+langchain==0.0.225
+flask
+pypdf
 python-dotenv
+
+
