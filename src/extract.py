@@ -48,6 +48,11 @@ def extract_elements(chunks):
         # (Opcional) imagem “pura” no nível do chunk
         if isinstance(ch, USImage) and getattr(ch.metadata, "image_base64", None):
             images_b64.append(ch.metadata.image_base64)
+            
+    print(f'O número de chunks é: {len(chunks)}')
+    print(f'O número de tabelas é: {len(tables)}')
+    print(f'O número de textos é: {len(texts)}')
+    print(f'O número de imagens é: {len(images_b64)}')
 
     return tables, texts, images_b64
 

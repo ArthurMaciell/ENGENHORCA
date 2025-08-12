@@ -18,7 +18,7 @@ def build_vectorstore(cfg):
     )
     return retriever, vs
 
-def add_documents(retriever, vs, extracted, doc_path, summaries=None):
+def add_documents(retriever, vs, extracted, doc_path, summaries):
     # doc_id por arquivo para amarrar filhos → pai
     doc_id = str(uuid.uuid4())
     # filhos: textos resumidos (ou brutos), tabelas (html), OCRs
@@ -30,11 +30,11 @@ def add_documents(retriever, vs, extracted, doc_path, summaries=None):
         children.append(Document(page_content=t, metadata={"doc_id": doc_id, "source": doc_path, "type":"text"}))
 
     # tabelas
-    for thtml in extracted["tables_html"]:
-        children.append(Document(page_content=thtml, metadata={"doc_id": doc_id, "source": doc_path, "type":"table"}))
+    #for thtml in extracted["tables_html"]:
+        #children.append(Document(page_content=thtml, metadata={"doc_id": doc_id, "source": doc_path, "type":"table"}))
 
     # OCR
-    for o in extracted["ocr_texts"]:
+    for o in extracted["image_text"]:
         children.append(Document(page_content=o, metadata={"doc_id": doc_id, "source": doc_path, "type":"ocr"}))
 
     if children:
@@ -43,6 +43,8 @@ def add_documents(retriever, vs, extracted, doc_path, summaries=None):
     # pai (original bruto) — útil se quiser recuperar “inteiros”
     retriever.docstore.mset([(doc_id, {"path": doc_path})])
     vs.persist()
+    
+    print('iHAA')
 
 
 

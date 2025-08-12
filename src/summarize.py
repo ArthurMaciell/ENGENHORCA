@@ -20,6 +20,7 @@ def build_summarizer(cfg):
     {element}
     """
     prompt = ChatPromptTemplate.from_template(prompt_text)
+    print("Deu bom!")
     return {"element": lambda x: x} | prompt | model | StrOutputParser()
 
 def safe_batch(chain: Runnable, data, batch_size=1, wait=8):

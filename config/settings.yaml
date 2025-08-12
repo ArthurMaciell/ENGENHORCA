@@ -1,0 +1,27 @@
+paths:
+  raw_dir: "data/raw"
+  staged_dir: "data/staged"
+  chroma_dir: "data/chroma"
+
+ingest:
+  languages: ["por+eng"]
+  chunking_strategy: "by_title"
+  max_characters: 8000
+  new_after_n_chars: 4000
+  combine_text_under_n_chars: 1000
+  infer_table_structure: true
+
+embeddings:
+  provider: "huggingface"
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+
+retriever:
+  collection_name: "hvac_multi_modal"
+  top_k: 6
+  mmr: true
+  mmr_lambda: 0.5
+
+llm:
+  # você já usa Groq
+  model: "llama-3.1-8b-instant"
+  temperature: 0.2

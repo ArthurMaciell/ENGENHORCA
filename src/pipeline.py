@@ -12,6 +12,23 @@ if __name__ == '__main__':
     chunks = load_pdf_chunks(path)
     
     tables, texts, images_b64 = extract_elements(chunks)
-    print(len(chunks))
-    
+
     image_text = ocr_from_images_base64(images_b64)
+    
+    cfg = load_settings()
+    summarize_chain = build_summarizer(cfg)
+    text_summaries = safe_batch(summarize_chain, texts)
+    print(text_summaries)
+    table_summaries = safe_batch(summarize_chain, tables)
+    image_summaries = safe_batch(summarize_chain, image_text)
+    
+    retriever, vs = build_vectorstore(cfg)
+    extracted = {
+    "texts": texts,                   # lista de strings (ou elem.text)       
+    "image_text": image_text,           # lista de strings vindas do OCR
+    "images": image_summaries,        # lista de resumos textuais das imagens (opcional)
+        }
+    summaries = {
+        "texts": [s for s in (text_summaries + table_summaries + image_summaries) if s and s.strip()]
+    }
+    add_documents(retriever, vs, extracted, path,summaries)
