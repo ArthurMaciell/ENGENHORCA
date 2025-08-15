@@ -1,5 +1,6 @@
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -22,7 +23,10 @@ from unstructured.chunking.title import chunk_by_title
 from unstructured.documents.elements import Table, Image
 from io import BytesIO
 import base64
-
+from langchain.chains import create_history_aware_retriever, create_retrieval_chain
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain.memory import ChatMessageHistory
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import pytesseract
 from PIL import Image as PILImage  # evita conflito de nomes
 from unstructured.documents.elements import (
@@ -32,30 +36,39 @@ from unstructured.documents.elements import (
 )
 
 
-def get_pdf_text(pdf_docs):
-    text = ''
-    for pdf in pdf_docs:
-        pdf_reader = PdfReader(pdf)
-        for page in pdf_reader.pages:
-            text += page.extract_text()
-    return text
+def get_pdf_text(pdf_docs,sep_between_pdfs=True):
+    pieces = [] 
+    for i, pdf in enumerate(pdf_docs):
+        reader = PdfReader(pdf)
+        for page in reader.pages:
+            pieces.append(page.extract_text() or "")  # evita None
+        if sep_between_pdfs and i < len(pdf_docs) - 1:
+            pieces.append("\n" + ("—" * 20) + "\n")   # separador
+    return "".join(pieces)
 
 
-def get_text_chunks(text):
-    text_splitter = CharacterTextSplitter(
-        separator = "\n",
-        chunk_size = 1800,
-        chunk_overlap = 200,
+def get_text_chunks(text, chunk_size=1800, chunk_overlap=200):
+    splitter = RecursiveCharacterTextSplitter(
+        separators=["\n\n", "\n", " ", ""],  # tenta do maior pro menor
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
         length_function=len
-        
-    )
-    chunks = text_splitter.split_text(text)
-    return chunks
+        )
+    return splitter.split_text(text or "")
 
 
 def get_vectorstore(text_chunks):
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    if not text_chunks:
+        raise ValueError("Nenhum chunk de texto disponível para indexar (text_chunks está vazio).")
+
+    
+    embeddings = HuggingFaceEmbeddings(model_name="multi-qa-mpnet-base-dot-v1")
     vectorstore = FAISS.from_texts(texts=text_chunks,embedding=embeddings)
+    
+    #Para ter memória entre as execuções
+    #vectorstore.save_local("faiss_index_dir")
+    # e depois:
+    #FAISS.load_local("faiss_index_dir", embeddings, allow_dangerous_deserialization=True)
 
     
     return vectorstore
@@ -70,11 +83,43 @@ def get_conversation_chain(vectorstore):
     temperature=0.2
     )
     memory = ConversationBufferMemory(memory_key='chat_history',return_messages=True)
-    conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm,
-                                                            retriever=vectorstore.as_retriever(search_kwargs={"k": 3}),
-                                                            memory=memory)
     
-    return conversation_chain
+    retriever = vectorstore.as_retriever(
+        search_type="mmr",  # diversifica
+        search_kwargs={"k": 3, "fetch_k": 20, "lambda_mult": 0.5},
+        )
+    
+    # 1. Retriever que leva em conta histórico
+    history_aware_retriever = create_history_aware_retriever(
+        llm, retriever,
+        ChatPromptTemplate.from_messages([
+            MessagesPlaceholder("chat_history"),
+            ("user", "{input}")
+        ])
+    )
+
+    # 2. Prompt de resposta com contexto
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "Você é um assistente especializado. Use o contexto recuperado para responder."),
+        MessagesPlaceholder("chat_history"),
+        ("user", "{input}")
+    ])
+
+    # 3. Cria a chain principal
+    retrieval_chain = create_retrieval_chain(history_aware_retriever, llm, prompt)
+
+    # 4. Adiciona memória de sessão (equivalente ao ConversationBufferMemory)
+    session_histories = {}
+
+    chain_with_history = RunnableWithMessageHistory(
+        retrieval_chain,
+        lambda session_id: session_histories.setdefault(session_id, ChatMessageHistory()),
+        input_messages_key="input",
+        history_messages_key="chat_history",
+        output_messages_key="answer"
+    )
+
+    return chain_with_history
 
 
 # ✅ Para o caso "Não" (ConversationalRetrievalChain: precisa de dict {"question": ...})
