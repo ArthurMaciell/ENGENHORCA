@@ -5,9 +5,24 @@ langchain
 python-dotenv
 faiss-cpu
 openai
-huggingface_hub
-langchain-community>=0.3
+
+# Document parsing
+unstructured[all-docs]
+lxml
+pillow
+python-magic-bin
+pytesseract
+
+# LangChain + RAG
+langchain
+langchain-community
+langchain-openai
+langchain-groq
+huggingface_hub[hf_xet]
 sentence-transformers
-langchain_groq
+
+# Vector DB and tokenizer
+chromadb
+tiktoken
 
 -e .

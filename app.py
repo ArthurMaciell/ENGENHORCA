@@ -1,8 +1,8 @@
 import streamlit as st
 from dotenv import load_dotenv
-from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore, get_conversation_chain,handler_user_input
+from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore, get_conversation_chain,handler_user_input,chunks_image,chunks_image_1
 from htmlTemplates import css,bot_template,user_template
-
+from unstructured.partition.pdf import partition_pdf
 
 def main():
     load_dotenv()
@@ -16,16 +16,18 @@ def main():
         st.session_state.chat_history = None
 
     st.header('ENGENHORCA 👨‍🔧')
+    tipo_leitura = st.selectbox('Você quer ler imagens e tabelas?',['Sim','Não'])
     user_question = st.text_input('Faça pergunta sobre o seu documento:')
     if user_question:
         handler_user_input(user_question)
     
-
     
     with st.sidebar:
         st.subheader('Documentos')
         pdf_docs = st.file_uploader('Baixe seu PDF aqui e clique em processar.', accept_multiple_files=True)
-        if st.button('Processando'):
+        
+    if tipo_leitura == 'Não':
+        if st.button('Chunks'):
             with st.spinner('Processando'):
                 #Pegando o texto do PDF
                 raw_text = get_pdf_text(pdf_docs)
@@ -39,8 +41,22 @@ def main():
                 
                 #Criação de conversa chain
                 st.session_state.conversation = get_conversation_chain(vectorstore)
-    
-    
+                
+    if tipo_leitura == 'Sim':
+        if st.button('Chunks'):
+            with st.spinner('Processando chunks'):
+                if pdf_docs:
+                    names = []
+                    data = []
+                    for uf in pdf_docs:
+                        uf.seek(0)
+                        names.append(uf.name)
+                        data.append(uf.read())
 
+                    chunks = chunks_image_1(names, data)  # <- acumula de todos os arquivos
+                    st.success(f"Chunks totais: {len(chunks)}")
+                    
+        
+        
 if __name__ == '__main__':
     main()
