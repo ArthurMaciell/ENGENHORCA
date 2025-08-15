@@ -1,6 +1,6 @@
 import streamlit as st
 from dotenv import load_dotenv
-from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore, get_conversation_chain,handler_user_input,chunks_image,chunks_image_1
+from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore, get_conversation_chain,handler_user_input,chunks_image
 from htmlTemplates import css,bot_template,user_template
 from unstructured.partition.pdf import partition_pdf
 
@@ -46,15 +46,10 @@ def main():
         if st.button('Chunks'):
             with st.spinner('Processando chunks'):
                 if pdf_docs:
-                    names = []
-                    data = []
-                    for uf in pdf_docs:
-                        uf.seek(0)
-                        names.append(uf.name)
-                        data.append(uf.read())
+                    for pdf in pdf_docs:
+                        chunks = chunks_image(pdf)
 
-                    chunks = chunks_image_1(names, data)  # <- acumula de todos os arquivos
-                    st.success(f"Chunks totais: {len(chunks)}")
+                        st.success(f"Chunks totais: {len(chunks)}")
                     
         
         
