@@ -43,8 +43,8 @@ def build_prompt(kwargs):
 
     context_text = ""
     if len(docs_by_type["texts"]) > 0:
-        for text_element in docs_by_type.get("texts", []):
-            context_text += _to_text(text_element) + "\n\n"
+        for text_element in docs_by_type["texts"]:
+            context_text += text_element.text + "\n\n"
 
     prompt_template = f"""
     Você é um assistente técnico. Responda com base apenas no seguinte contexto (extraído de documentos PDF e imagens convertidas para texto):

@@ -17,7 +17,7 @@ def build_summarizer():
     
     prompt_text = """
     You are an assistant. If the input is a question, answer it clearly and concisely.
-    If the input is a piece of text or table, summarize it.
+    If the input is a piece of text or table, summarize it in portuguese.
 
     Input:
     {element}
@@ -40,3 +40,23 @@ def safe_batch(chain: Runnable, data, batch_size=1, wait=8):
             except Exception as e2:
                 print("falhou:", e2)
     return out
+
+
+def safe_batch_process(chain: Runnable, data, batch_size=1, wait_on_error=10):
+    results = []
+    for i in range(0, len(data), batch_size):
+        batch = data[i:i+batch_size]
+        try:
+            batch_results = chain.batch(batch, {"max_concurrency": 2})
+            results.extend(batch_results)
+        except Exception as e:
+            print(f"⏱️ Rate limit atingido ou erro: {e}")
+            print(f"🔁 Esperando {wait_on_error} segundos para tentar de novo...")
+            time.sleep(wait_on_error)
+            # tenta o mesmo batch de novo
+            try:
+                batch_results = chain.batch(batch, {"max_concurrency": 2})
+                results.extend(batch_results)
+            except Exception as e2:
+                print(f"❌ Ainda deu erro: {e2} — pulando esse batch.")
+    return results

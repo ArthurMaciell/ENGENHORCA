@@ -1,7 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore,save_uploaded_file,handler_user_input_image, get_conversation_chain,handler_user_input,chunks_image,extract_elements,ocr_from_images_base64
-from scripts.summarize import build_summarizer,safe_batch
+from scripts.summarize import build_summarizer,safe_batch,safe_batch_process
 from scripts.index import build_vectorstore, add_documents
 from scripts.rag import chain, chain_with_sources
 from htmlTemplates import css,bot_template,user_template
@@ -21,11 +21,11 @@ def main():
     st.header('ENGENHORCA 👨‍🔧')
     tipo_leitura = st.selectbox('Você quer ler imagens e tabelas?',['Sim','Não'])
     user_question = st.text_input('Faça pergunta sobre o seu documento:')
-    if user_question:
-        if tipo_leitura == 'Não':
-            handler_user_input(user_question)
-        if tipo_leitura == 'Sim':
-            handler_user_input_image(user_question)
+    #if user_question:
+        #if tipo_leitura == 'Não':
+            #handler_user_input(user_question)
+        #if tipo_leitura == 'Sim':
+            #handler_user_input_image(user_question)
     
     with st.sidebar:
         st.subheader('Documentos')
@@ -51,38 +51,61 @@ def main():
         if st.button('Chunks'):
             with st.spinner('Processando chunks'):
                 if st.session_state.pdf_docs:
+                    # 1) CRIE O ÍNDICE UMA ÚNICA VEZ (fora do loop)
+                    retriever, vs = build_vectorstore()
+
+                    # (opcional) contadores p/ debug
+                    total_chunks = total_tables = total_images = total_ocr = 0
+
                     for pdf in st.session_state.pdf_docs:
                         path = save_uploaded_file(pdf)
-                        chunks = chunks_image(pdf)
-                        print(len(chunks))
-                        st.success(f"Chunks totais: {len(chunks)}")
-                        tables, texts, images_b64 = extract_elements(chunks)
-                        image_text = ocr_from_images_base64(images_b64)
-                        print(f'O número de chunks é: {len(chunks)}')
+
+                        # 2) Extrai elementos do PDF
+                        elems = chunks_image(pdf)
+                        st.success(f"Chunks totais (este PDF): {len(elems)}")
+                        total_chunks += len(elems)
+
+                        tables, texts, images_b64 = extract_elements(elems)
+
+                        # 3) OCR de imagens
+                        image_text = ocr_from_images_base64(images_b64) or []
+
+                        # 4) DEBUG
+                        print(f'O número de chunks é: {len(elems)}')
                         print(f'O número de tabelas é: {len(tables)}')
                         print(f'O número de textos é: {len(texts)}')
                         print(f'O número de imagens é: {len(images_b64)}')
-                        summarize_chain = build_summarizer()
-                        text_summaries = safe_batch(summarize_chain,texts)
-                        table_summaries = safe_batch(summarize_chain, tables)
-                        image_summaries = safe_batch(summarize_chain, image_text)
+
+                        total_tables += len(tables)
+                        total_images += len(images_b64)
+                        total_ocr    += len(image_text)
                         
-                        retriever, vs = build_vectorstore()
+                        text_summaries = safe_batch_process(build_summarizer, texts)
+                        print(text_summaries)
+
+                        # 5) 👉 TESTE SEM SUMMARIZE: indexe TEXTO BRUTO
                         extracted = {
-                        "texts": texts,                   # lista de strings (ou elem.text)       
-                        "image_text": image_text,           # lista de strings vindas do OCR
-                        "images": image_summaries,        # lista de resumos textuais das imagens (opcional)
-                            }
-                        summaries = {
-                            "texts": [s for s in (text_summaries + table_summaries + image_summaries) if s and s.strip()]
+                            "texts": texts,            # lista de strings (ou elem.text)
+                            "image_text": image_text,  # lista de strings do OCR
+                            "tables": tables,          # se sua add_documents aceitar tabelas em texto
                         }
-                        add_documents(retriever, vs, extracted, path,summaries)
-                        
-                        #Criação de conversa chain
-                        st.session_state.conversation = chain(retriever)                      
+                        summaries = None  # <- sem resumos agora
+
+                        # 6) Adiciona ao MESMO índice/retriever
+                        add_documents(retriever, vs, extracted, path, summaries)
+
+                    # 7) Cria a chain UMA VEZ, já com tudo indexado
+                    st.session_state.conversation = chain(retriever)
+
+                    # 8) (opcional) resumo de extração
+                    st.info(f"Acumulado • elementos: {total_chunks} | tabelas: {total_tables} | imagens: {total_images} | OCR textos: {total_ocr}")
                         
                     
-        
+    if user_question:
+        if tipo_leitura == 'Não':
+            handler_user_input(user_question)
+        if tipo_leitura == 'Sim':
+            handler_user_input_image(user_question)
         
 if __name__ == '__main__':
     main()

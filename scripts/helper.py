@@ -7,6 +7,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.retrievers.multi_vector import MultiVectorRetriever
 from langchain.chains import ConversationalRetrievalChain
 import streamlit as st
+import uuid
 from langchain.storage import InMemoryStore  # ou SQLAlchemyStore p/ persistir pais
 from langchain.schema import Document
 from langchain.memory import ConversationBufferMemory
@@ -80,69 +81,111 @@ def get_conversation_chain(vectorstore):
     llm = ChatGroq(
     api_key=os.getenv("GROQ_API_KEY"),
     model="llama-3.1-8b-instant",
-    temperature=0.2
+    temperature=0.5
     )
     memory = ConversationBufferMemory(memory_key='chat_history',return_messages=True)
     
-    retriever = vectorstore.as_retriever(
-        search_type="mmr",  # diversifica
-        search_kwargs={"k": 3, "fetch_k": 20, "lambda_mult": 0.5},
-        )
+    # Retriever base do seu FAISS
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+    
+    # Assim ele busca 10 candidatos, escolhe 3 mais relevantes e diferentes entre si.
+    #retriever = vectorstore.as_retriever(search_type="mmr",search_kwargs={"k": 3, "fetch_k": 10, "lambda_mult": 0.5})
+    
+    # Prompt p/ gerar consulta levando em conta o histórico
+    contextualize_q_prompt = ChatPromptTemplate.from_messages([
+        ("system",
+        "Reescreva a pergunta do usuário de forma independente e objetiva, "
+        "usando o histórico para completar referências. "
+        "Não responda ainda; gere a melhor consulta para busca."),
+        MessagesPlaceholder("chat_history"),
+        ("user", "{input}"),
+    ])
     
     # 1. Retriever que leva em conta histórico
     history_aware_retriever = create_history_aware_retriever(
-        llm, retriever,
-        ChatPromptTemplate.from_messages([
-            MessagesPlaceholder("chat_history"),
-            ("user", "{input}")
-        ])
+        llm=llm,
+        retriever=retriever,
+        prompt=contextualize_q_prompt,
     )
 
-    # 2. Prompt de resposta com contexto
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "Você é um assistente especializado. Use o contexto recuperado para responder."),
+    # Prompt de resposta final usando os docs recuperados
+    answer_prompt = ChatPromptTemplate.from_messages([
+        ("system",
+        "Você é um assistente técnico. Responda de forma direta e cite fatos apenas do contexto. "
+        "Se algo não estiver no contexto, diga que não encontrou."),
         MessagesPlaceholder("chat_history"),
-        ("user", "{input}")
+        ("user", "{input}"),
     ])
 
-    # 3. Cria a chain principal
-    retrieval_chain = create_retrieval_chain(history_aware_retriever, llm, prompt)
+    # Chain principal (recupera contexto e responde)
+    retrieval_chain = create_retrieval_chain(
+        history_aware_retriever,
+        llm,
+        answer_prompt,
+    )
+    # OBS: a saída padrão é {"input", "context", "answer"}
 
     # 4. Adiciona memória de sessão (equivalente ao ConversationBufferMemory)
     session_histories = {}
 
     chain_with_history = RunnableWithMessageHistory(
         retrieval_chain,
+        # função que devolve/instancia o histórico para um session_id
         lambda session_id: session_histories.setdefault(session_id, ChatMessageHistory()),
         input_messages_key="input",
         history_messages_key="chat_history",
-        output_messages_key="answer"
+        output_messages_key="answer",
     )
 
-    return chain_with_history
+    # 1) Entrada: {"question": "..."}  -> {"input": "..."}
+    map_in = RunnableLambda(lambda d: {"input": d["question"]})
+
+    # 2) Saída: {"input", "context", "answer"} -> {"answer", "source_documents"}
+    def _map_out(resp: dict):
+        return {
+            "answer": resp.get("answer", ""),
+            "source_documents": resp.get("context", []),
+        }
+    map_out = RunnableLambda(_map_out)
+
+    # encadeia: adapta entrada -> chain -> adapta saída
+    compatible_chain = map_in | chain_with_history | map_out
+
+    # anexa referências úteis (opcional)
+    compatible_chain.session_histories = session_histories  # p/ você acessar no Streamlit se quiser
+
+    return compatible_chain
 
 
 # ✅ Para o caso "Não" (ConversationalRetrievalChain: precisa de dict {"question": ...})
 def handler_user_input(user_question: str):
-    import streamlit as st
 
     conv = st.session_state.get("conversation")
-    if conv is None:
-        st.error("Chain não inicializada. Clique em 'Chunks' primeiro.")
-        return
+    #if conv is None:
+        #st.error("Chain não inicializada. Clique em 'Chunks' primeiro.")
+        #return
 
-    # ConversationalRetrievalChain espera dict:
-    resp = conv.invoke({"question": user_question})   # <<--- chave "question"
+    # NEW: garante um session_id estável por aba
+    if "session_id" not in st.session_state:
+        st.session_state.session_id = str(uuid.uuid4())
 
-    # A resposta típica desse chain:
-    # resp = {"answer": "...", "source_documents": [...]}
+    # NEW: passa o session_id para a chain (necessário p/ memória funcionar)
+    resp = conv.invoke(
+        {"question": user_question},
+        config={"configurable": {"session_id": st.session_state.session_id}},
+    )
+
     answer = resp.get("answer", "")
 
-    # Recupera o histórico diretamente da memória do chain:
+    # Tentar recuperar o histórico:
+    messages = []
     try:
-        messages = conv.memory.chat_memory.messages  # lista de mensagens (AI/Human)
+        # se você usou o compatible_chain acima, ele carrega session_histories:
+        hist = getattr(conv, "session_histories", {}).get(st.session_state.session_id)
+        if hist:
+            messages = hist.messages  # lista de mensagens Human/AI
     except Exception:
-        messages = []
+        pass
 
     # Renderiza
     for i, message in enumerate(messages):
@@ -151,7 +194,6 @@ def handler_user_input(user_question: str):
         else:
             st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
 
-    # também mostra a última resposta (garante que aparece mesmo se memória não atualizou ainda)
     if answer:
         st.write(bot_template.replace("{{MSG}}", answer), unsafe_allow_html=True)
 
@@ -167,9 +209,9 @@ def chunks_image(pdf_doc):
         extract_image_block_to_payload=True,   # if true, will extract base64 for API usage
 
         chunking_strategy="basic",          # or 'basic'
-        max_characters=10000,                  # defaults to 500
-        combine_text_under_n_chars=2000,       # defaults to 0
-        new_after_n_chars=2000,
+        max_characters=5000,                  # defaults to 500
+        combine_text_under_n_chars=500,       # defaults to 0
+        new_after_n_chars=500,
         languages=["por","eng"],
         ocr_languages=["por","eng"]
 
