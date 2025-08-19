@@ -3,6 +3,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
 from base64 import b64decode
 import os
+import base64
 
 # LLM - Groq com LLaMA 3
 model = ChatGroq(
@@ -11,51 +12,57 @@ model = ChatGroq(
     temperature=0.2
 )
 
+def is_base64(data: str) -> bool:
+    try:
+        # tenta decodificar e recodificar
+        return base64.b64encode(base64.b64decode(data)) == data.encode()
+    except Exception:
+        return False
+
 # Separa textos e imagens, mas ignora imagens no processamento
 def parse_docs(docs):
-    b64 = []
-    text = []
+    images_b64, texts_norm = [], []
     for doc in docs:
-        try:
-            b64decode(doc)
-            b64.append(doc)  # ← será ignorado, mas salvo se quiser usar depois
-        except Exception:
-            text.append(doc)
-    return {"images": b64, "texts": text}
+        if is_base64(doc):
+            images_b64.append(doc)
+        else:
+            texts_norm.append(_to_text(doc))  # <- normaliza aqui
+    return {"images": images_b64, "texts": texts_norm}
 
 def _to_text(elem):
-    # Se for Document do LangChain
+    # LangChain Document
     if hasattr(elem, "page_content"):
         return elem.page_content
-    # Se tiver atributo .text
+    # Unstructured element
     if hasattr(elem, "text"):
         return elem.text
-    # Se for dict
+    # dict com possíveis chaves
     if isinstance(elem, dict):
         return elem.get("page_content") or elem.get("text") or str(elem)
-    # Se for string
+    # fallback
     return str(elem)
+
 
 # Monta prompt apenas com texto extraído
 def build_prompt(kwargs):
     docs_by_type = kwargs["context"]
     user_question = kwargs["question"]
 
-    context_text = ""
-    if len(docs_by_type["texts"]) > 0:
-        for text_element in docs_by_type["texts"]:
-            context_text += text_element.text + "\n\n"
+    # como parse_docs já normaliza, aqui é só juntar
+    texts = docs_by_type.get("texts", [])
+    # (opcional) limitar tamanho total do contexto p/ evitar prompt gigante
+    context_text = "\n\n".join(texts)[:120000]  # ~120k chars de teto
 
     prompt_template = f"""
-    Você é um assistente técnico. Responda com base apenas no seguinte contexto (extraído de documentos PDF e imagens convertidas para texto):
+    Você é um assistente técnico. Responda **apenas** com base no contexto abaixo (extraído de PDFs e imagens OCR):
 
     {context_text}
 
     Pergunta: {user_question}
-    Resposta:
-        """
+    Responda de forma direta, cite trechos relevantes quando necessário e diga “Não encontrado no contexto” se faltar informação.
+    """.strip()
 
-    return prompt_template.strip()
+    return prompt_template
 
 # Chain simples
 def chain(retriever):

@@ -16,6 +16,7 @@ pytesseract
 # LangChain + RAG
 langchain
 langchain-community
+langchain-huggingface
 langchain-openai
 langchain-groq
 huggingface_hub[hf_xet]

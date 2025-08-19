@@ -4,8 +4,12 @@ from langchain_community.vectorstores import Chroma
 from langchain.storage import InMemoryStore
 from langchain.schema import Document
 from langchain.retrievers.multi_vector import MultiVectorRetriever
+import uuid
+from langchain.schema import Document
+from langchain_community.vectorstores.utils import filter_complex_metadata
 
 def build_vectorstore():
+    # Melhor para PT-BR:
     emb = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vs = Chroma(
         collection_name="multi_modal_rag",
@@ -18,32 +22,70 @@ def build_vectorstore():
     )
     return retriever, vs
 
+ID_KEY = "doc_id"
+
+def _norm_list(xs):
+    out = []
+    for x in xs or []:
+        s = getattr(x, "text", x)  # aceita Element do unstructured ou str
+        if s is None:
+            continue
+        s = str(s).strip()
+        if s:
+            out.append(s)
+    return out
+
 def add_documents(retriever, vs, extracted, doc_path, summaries):
-    doc_id = str(uuid.uuid4())
+    # 1) Coleta bruto e resumos por tipo
+    texts  = _norm_list(extracted.get("texts"))
+    tables = _norm_list(extracted.get("tables"))
+    images = _norm_list(extracted.get("image_text"))   # OCR
 
-    # garanta string:
-    if hasattr(doc_path, "name") and hasattr(doc_path, "getvalue"):  # UploadedFile
-        source_str = doc_path.name
-    else:
-        source_str = str(doc_path)
+    text_summaries  = _norm_list((summaries or {}).get("texts"))
+    table_summaries = _norm_list((summaries or {}).get("tables"))
+    image_summaries = _norm_list((summaries or {}).get("images"))
 
-    children = []
-    texts = (summaries or {}).get("texts") or extracted.get("texts", [])
-    for t in texts:
-        children.append(Document(page_content=t, metadata={"doc_id": doc_id, "source": source_str, "type":"text"}))
+    # 2) TEXTS — filhos (resumos) no vectorstore, pais (bruto) no docstore
+    if texts:
+        doc_ids = [str(uuid.uuid4()) for _ in texts]
+        summary_texts = [
+            Document(page_content=text_summaries[i], metadata={ID_KEY: doc_ids[i]})
+            for i in range(min(len(text_summaries), len(doc_ids)))
+        ]
+        if summary_texts:
+            retriever.vectorstore.add_documents(filter_complex_metadata(summary_texts))
+        # pais
+        retriever.docstore.mset(list(zip(doc_ids, texts)))
 
-    for o in extracted.get("image_text", []):
-        children.append(Document(page_content=o, metadata={"doc_id": doc_id, "source": source_str, "type":"ocr"}))
+    # 3) TABLES — (igual ao seu notebook: só pais no docstore; filhos opcional)
+    if tables:
+        table_ids = [str(uuid.uuid4()) for _ in tables]
+        summary_tables = [
+            Document(page_content=table_summaries[i], metadata={ID_KEY: table_ids[i]})
+            for i in range(min(len(table_summaries), len(table_ids)))
+        ]
+        # se quiser indexar resumos de tabela também, descomente:
+        # if summary_tables:
+        #     retriever.vectorstore.add_documents(filter_complex_metadata(summary_tables))
+        retriever.docstore.mset(list(zip(table_ids, tables)))
 
-    if children:
-        # segurança extra: filtra metadados complexos se algo escapar
-        from langchain_community.vectorstores.utils import filter_complex_metadata
-        children = filter_complex_metadata(children)
-        retriever.vectorstore.add_documents(children)
+    # 4) IMAGES (OCR) — filhos (resumos) no vectorstore, pais (bruto OCR) no docstore
+    if images:
+        img_ids = [str(uuid.uuid4()) for _ in images]
+        summary_img = [
+            Document(page_content=image_summaries[i], metadata={ID_KEY: img_ids[i]})
+            for i in range(min(len(image_summaries), len(img_ids)))
+        ]
+        if summary_img:
+            retriever.vectorstore.add_documents(filter_complex_metadata(summary_img))
+        retriever.docstore.mset(list(zip(img_ids, images)))
 
-    retriever.docstore.mset([(doc_id, {"path": source_str})])  # << só string aqui
-    vs.persist()
-    return doc_id
+    # 5) Persistir Chroma (se estiver usando persist_directory)
+    try:
+        vs.persist()
+    except Exception:
+        pass
+    
 
 
 

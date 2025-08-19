@@ -1,6 +1,6 @@
 import streamlit as st
 from dotenv import load_dotenv
-from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore,save_uploaded_file,handler_user_input_image, get_conversation_chain,handler_user_input,chunks_image,extract_elements,ocr_from_images_base64
+from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore,save_uploaded_file,handler_user_input_image, get_conversation_chain_simples, get_conversation_chain,handler_user_input,chunks_image,extract_elements,ocr_from_images_base64
 from scripts.summarize import build_summarizer,safe_batch,safe_batch_process
 from scripts.index import build_vectorstore, add_documents
 from scripts.rag import chain, chain_with_sources
@@ -43,9 +43,10 @@ def main():
                 
                 #Criar o vectorstore
                 vectorstore = get_vectorstore(text_chunks)
+                st.write(len(vectorstore))
                 
                 #Criação de conversa chain
-                st.session_state.conversation = get_conversation_chain(vectorstore)
+                st.session_state.conversation = get_conversation_chain_simples(vectorstore)
                 
     if tipo_leitura == 'Sim':
         if st.button('Chunks'):
@@ -80,30 +81,40 @@ def main():
                         total_images += len(images_b64)
                         total_ocr    += len(image_text)
                         
-                        text_summaries = safe_batch_process(build_summarizer, texts)
-                        print(text_summaries)
+                        text_summaries = safe_batch_process(texts)
+                        #text_summaries
+                        table_summaries = safe_batch_process(tables)
+                        image_summaries = safe_batch_process(image_text)
 
-                        # 5) 👉 TESTE SEM SUMMARIZE: indexe TEXTO BRUTO
+                        
                         extracted = {
-                            "texts": texts,            # lista de strings (ou elem.text)
-                            "image_text": image_text,  # lista de strings do OCR
-                            "tables": tables,          # se sua add_documents aceitar tabelas em texto
-                        }
-                        summaries = None  # <- sem resumos agora
-
-                        # 6) Adiciona ao MESMO índice/retriever
-                        add_documents(retriever, vs, extracted, path, summaries)
+                            "texts": texts,       # lista de strings ou Elements de texto normal
+                            "tables": tables,      # lista de strings ou Elements de tabelas
+                            "image_text": image_text   # lista de strings do OCR das imagens
+                        } 
+                        summaries = {
+                            "texts": text_summaries,
+                            "tables": table_summaries,
+                            "images": image_summaries
+                        } 
+                        add_documents(retriever, vs, extracted, path,summaries)
+                        
+                    probe = "caixa terminal"
+                    docs = retriever.get_relevant_documents(probe)
+                    st.write("Probe docs recuperados:", len(docs))
+                    if docs:
+                        st.code(docs[0].page_content[:500])
 
                     # 7) Cria a chain UMA VEZ, já com tudo indexado
                     st.session_state.conversation = chain(retriever)
 
                     # 8) (opcional) resumo de extração
-                    st.info(f"Acumulado • elementos: {total_chunks} | tabelas: {total_tables} | imagens: {total_images} | OCR textos: {total_ocr}")
+                    st.info(f"Acumulado • elementos: {total_chunks} | tabelas: {total_tables} | imagens: {total_images} | OCR textos: {total_ocr}| table_summaries: {len(table_summaries)}")
                         
                     
     if user_question:
         if tipo_leitura == 'Não':
-            handler_user_input(user_question)
+            handler_user_input({'question': user_question})
         if tipo_leitura == 'Sim':
             handler_user_input_image(user_question)
         

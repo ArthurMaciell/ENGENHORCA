@@ -35,6 +35,9 @@ from unstructured.documents.elements import (
     Image as USImage,
     CompositeElement,
 )
+# imports necessários
+from langchain_core.messages import HumanMessage, AIMessage
+import streamlit as st
 
 
 def get_pdf_text(pdf_docs,sep_between_pdfs=True):
@@ -75,7 +78,15 @@ def get_vectorstore(text_chunks):
     return vectorstore
 
 
-
+def get_conversation_chain_simples(vectorstore):
+    llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.2)
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "Você é um assistente técnico."),
+        MessagesPlaceholder("history"),
+        ("human", "{question}")
+    ])
+    chain = prompt | llm | StrOutputParser()
+    return chain
 
 def get_conversation_chain(vectorstore):
     llm = ChatGroq(
@@ -159,43 +170,29 @@ def get_conversation_chain(vectorstore):
 
 # ✅ Para o caso "Não" (ConversationalRetrievalChain: precisa de dict {"question": ...})
 def handler_user_input(user_question: str):
+    # garante que a conversa e o histórico existem
+    if "conversation" not in st.session_state or st.session_state.conversation is None:
+        st.session_state.conversation = get_conversation_chain()  # sua função que retorna (prompt | llm | parser)
+    if "chat_history" not in st.session_state or st.session_state.chat_history is None:
+        st.session_state.chat_history = []
+    chain = st.session_state.conversation
+    history = st.session_state.chat_history
+    # CHAME com .invoke e passe o histórico
+    answer = chain.invoke({"question": user_question, "history": history})
 
-    conv = st.session_state.get("conversation")
-    #if conv is None:
-        #st.error("Chain não inicializada. Clique em 'Chunks' primeiro.")
-        #return
+    # atualiza histórico (seu loop assume pares Human/AI alternados)
+    st.session_state.chat_history = history + [
+        HumanMessage(content=user_question),
+        AIMessage(content=answer),
+    ]
 
-    # NEW: garante um session_id estável por aba
-    if "session_id" not in st.session_state:
-        st.session_state.session_id = str(uuid.uuid4())
-
-    # NEW: passa o session_id para a chain (necessário p/ memória funcionar)
-    resp = conv.invoke(
-        {"question": user_question},
-        config={"configurable": {"session_id": st.session_state.session_id}},
-    )
-
-    answer = resp.get("answer", "")
-
-    # Tentar recuperar o histórico:
-    messages = []
-    try:
-        # se você usou o compatible_chain acima, ele carrega session_histories:
-        hist = getattr(conv, "session_histories", {}).get(st.session_state.session_id)
-        if hist:
-            messages = hist.messages  # lista de mensagens Human/AI
-    except Exception:
-        pass
-
-    # Renderiza
-    for i, message in enumerate(messages):
-        if getattr(message, "type", "").lower() in ("human", "user") or i % 2 == 0:
-            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+    # renderização (igual à sua, só garantindo .content)
+    for i, message in enumerate(st.session_state.chat_history):
+        content = getattr(message, "content", str(message))
+        if i % 2 == 0:
+            st.write(user_template.replace("{{MSG}}", content), unsafe_allow_html=True)
         else:
-            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-
-    if answer:
-        st.write(bot_template.replace("{{MSG}}", answer), unsafe_allow_html=True)
+            st.write(bot_template.replace("{{MSG}}", content), unsafe_allow_html=True)
 
 def chunks_image(pdf_doc):
     chunks = partition_pdf(
