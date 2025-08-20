@@ -1,6 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
-from scripts.helper import get_pdf_text, get_text_chunks,get_vectorstore,save_uploaded_file,handler_user_input_image, get_conversation_chain_simples, get_conversation_chain,handler_user_input,chunks_image,extract_elements,ocr_from_images_base64
+from scripts.helper import save_uploaded_file,handler_user_input_image, get_conversation_chain_simples, get_conversation_chain,chunks_image,extract_elements,ocr_from_images_base64
+from scripts.helper_simples import get_pdf_text, get_text_chunks,get_vectorstore,get_conversation_chain_rag,handler_user_input_simples
 from scripts.summarize import build_summarizer,safe_batch,safe_batch_process
 from scripts.index import build_vectorstore, add_documents
 from scripts.rag import chain, chain_with_sources
@@ -12,11 +13,7 @@ def main():
     st.set_page_config(page_title='ENGENHORCA', page_icon='👨‍🔧')
     
     st.write(css, unsafe_allow_html=True)
-    
-    if "conversation" not in st.session_state:
-        st.session_state.conversation = None
-    if "chat_history" not in st.session_state:
-        st.session_state.chat_history = None
+
 
     st.header('ENGENHORCA 👨‍🔧')
     tipo_leitura = st.selectbox('Você quer ler imagens e tabelas?',['Sim','Não'])
@@ -42,11 +39,9 @@ def main():
                 st.write(text_chunks)
                 
                 #Criar o vectorstore
-                vectorstore = get_vectorstore(text_chunks)
-                st.write(len(vectorstore))
+                st.session_state.retriever = get_vectorstore(text_chunks)
                 
-                #Criação de conversa chain
-                st.session_state.conversation = get_conversation_chain_simples(vectorstore)
+                
                 
     if tipo_leitura == 'Sim':
         if st.button('Chunks'):
@@ -114,7 +109,7 @@ def main():
                     
     if user_question:
         if tipo_leitura == 'Não':
-            handler_user_input({'question': user_question})
+            handler_user_input_simples(user_question,st.session_state.retriever)
         if tipo_leitura == 'Sim':
             handler_user_input_image(user_question)
         
