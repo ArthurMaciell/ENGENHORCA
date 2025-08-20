@@ -29,7 +29,7 @@ def main():
         st.session_state.pdf_docs = st.file_uploader('Baixe seu PDF aqui e clique em processar.', accept_multiple_files=True)
         
     if tipo_leitura == 'Não':
-        if st.button('Chunks'):
+        if st.button('Ler PDFs'):
             with st.spinner('Processando'):
                 #Pegando o texto do PDF
                 raw_text = get_pdf_text(st.session_state.pdf_docs)
@@ -93,7 +93,8 @@ def main():
                             "images": image_summaries
                         } 
                         add_documents(retriever, vs, extracted, path,summaries)
-                        
+                    
+                    
                     probe = "caixa terminal"
                     docs = retriever.get_relevant_documents(probe)
                     st.write("Probe docs recuperados:", len(docs))

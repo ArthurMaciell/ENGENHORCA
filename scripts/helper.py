@@ -81,26 +81,6 @@ def get_vectorstore(text_chunks):
 def format_docs(docs):
     return "\n\n".join(getattr(d, "page_content", str(d)) for d in docs)
 
-def get_conversation_chain_rag(retriever):
-    llm = ChatGroq(model='llama-3.1-8b-instant', temperature=0.2)
-
-    prompt = ChatPromptTemplate.from_messages([
-        ("system",
-        "Você é um assistente HVAC. Responda **apenas** com base no contexto.\n\n"
-        "Contexto:\n{context}"),
-        MessagesPlaceholder("history"),
-        ("human", "{question}")
-    ])
-
-    chain = {
-        "question": RunnablePassthrough(),                       # passa a pergunta
-        "history": itemgetter("history"),                        # se você tiver histórico
-        "context": itemgetter("question")                        # usa a pergunta
-                | retriever                                   # busca no índice
-                | RunnableLambda(format_docs),                # formata os docs
-    } | prompt | llm | StrOutputParser()
-
-    return chain
 
 def get_conversation_chain_simples(vectorstore):
     llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.2)

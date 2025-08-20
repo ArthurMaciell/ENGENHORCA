@@ -70,7 +70,7 @@ def get_conversation_chain_rag(retriever):
 
     prompt = ChatPromptTemplate.from_messages([
         ("system",
-        "Você é um assistente HVAC. Responda **apenas** com base no contexto.\n\n"
+        "Você é um assistente HVAC. Responda **apenas** com base no contexto. Se o assunto não está relacionada ao assunto anterior responder mesmo assim.  \n\n"
         "Contexto:\n{context}"),
         MessagesPlaceholder("history"),
         ("human", "{question}")
@@ -94,7 +94,7 @@ def handler_user_input_simples(user_question: str,retriever):
     if "chat_history" not in st.session_state or st.session_state.chat_history is None:
         st.session_state.chat_history = []
     chain = st.session_state.conversation
-    history = st.session_state.chat_history
+    history = st.session_state.chat_history[-20:]
     # CHAME com .invoke e passe o histórico
     answer = chain.invoke({"question": user_question, "history": history})
 
