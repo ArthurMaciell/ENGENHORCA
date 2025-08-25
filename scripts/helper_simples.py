@@ -70,7 +70,7 @@ def get_conversation_chain_rag(retriever):
 
     prompt = ChatPromptTemplate.from_messages([
         ("system",
-        "Você é um assistente HVAC. Responda **apenas** com base no contexto. Se o assunto não está relacionada ao assunto anterior responder mesmo assim.  \n\n"
+        "Você é um assistente HVAC. Ajude a responder com base no contexto e no arquivo lido.  \n\n"
         "Contexto:\n{context}"),
         MessagesPlaceholder("history"),
         ("human", "{question}")

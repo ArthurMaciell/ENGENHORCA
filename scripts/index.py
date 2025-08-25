@@ -7,6 +7,8 @@ from langchain.retrievers.multi_vector import MultiVectorRetriever
 import uuid
 from langchain.schema import Document
 from langchain_community.vectorstores.utils import filter_complex_metadata
+from langchain_community.vectorstores import FAISS
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 def build_vectorstore():
     # Melhor para PT-BR:
@@ -86,7 +88,60 @@ def add_documents(retriever, vs, extracted, doc_path, summaries):
     except Exception:
         pass
     
+def _chunkify(texts, chunk_size=1800, chunk_overlap=200):
+    splitter = RecursiveCharacterTextSplitter(
+        separators=["\n\n", "\n", " ", ""],
+        chunk_size=chunk_size, chunk_overlap=chunk_overlap, length_function=len
+    )
+    out = []
+    for t in texts:
+        out.extend([c.strip() for c in splitter.split_text(t) if c and c.strip()])
+    return out
 
+def build_index_from_extracted(extracted, source_name: str):
+    # 1) junta tudo que é TEXTO
+    base_texts = []
+    base_texts.extend(extracted.get("texts", []) or [])
+    base_texts.extend(extracted.get("tables", []) or [])
+    base_texts.extend(extracted.get("image_text", []) or [])
 
+    # 2) chunking
+    chunks = _chunkify(base_texts)
 
+    # 3) vira Documents com metadados
+    docs = [Document(page_content=c, metadata={"source": source_name, "kind": "mixed"}) for c in chunks]
+
+    # 4) embeddings + FAISS
+    emb = HuggingFaceEmbeddings(model_name="paraphrase-multilingual-MiniLM-L12-v2")
+    vs = FAISS.from_documents(docs, emb)
+
+    # 5) retriever (MMR ajuda a diversificar)
+    retriever = vs.as_retriever(search_type="mmr", search_kwargs={"k": 3, "fetch_k": 15, "lambda_mult": 0.5})
+    return retriever
     
+    
+def build_vectorstore_from_extracted(extracted: dict, source_name: str = "arquivo.pdf", k: int = 3):
+    """
+    extracted = {
+        "texts": [str, ...],
+        "tables": [str, ...],
+        "image_text": [str, ...]
+    }
+    """
+    all_blocks = []
+    for key in ["texts", "tables", "image_text"]:
+        for x in extracted.get(key, []):
+            if x and str(x).strip():
+                all_blocks.append(str(x).strip())
+
+    if not all_blocks:
+        raise ValueError("Nada para indexar.")
+
+    # cria Documents direto (sem split extra)
+    docs = [Document(page_content=b, metadata={"source": source_name}) for b in all_blocks]
+
+    encoder = HuggingFaceEmbeddings(model_name="multi-qa-mpnet-base-dot-v1")
+    vs = FAISS.from_documents(docs, encoder)
+
+    retriever = vs.as_retriever(search_kwargs={"k": k})
+    return retriever

@@ -1,62 +1,23 @@
-from PyPDF2 import PdfReader
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.retrievers.multi_vector import MultiVectorRetriever
-#from langchain.chains import ConversationalRetrievalChain
-import streamlit as st
-import uuid
-from langchain.storage import InMemoryStore  # ou SQLAlchemyStore p/ persistir pais
-from langchain.schema import Document
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import conversational_retrieval
-from langchain_core.runnables import RunnablePassthrough, RunnableLambda
-from langchain_core.output_parsers import StrOutputParser
-from langchain_groq import ChatGroq
-from base64 import b64decode
-import os
-from htmlTemplates import css,bot_template,user_template
-from io import BytesIO
 from unstructured.partition.pdf import partition_pdf
-from unstructured.chunking.title import chunk_by_title
-from unstructured.documents.elements import Table, Image
-from io import BytesIO
-import base64
-from langchain.chains import create_history_aware_retriever, create_retrieval_chain
-from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain.memory import ChatMessageHistory
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import pytesseract
-from PIL import Image as PILImage  # evita conflito de nomes
 from unstructured.documents.elements import (
     Table,
     Image as USImage,
     CompositeElement,
 )
-# imports necessários
+import base64
+from PIL import Image as PILImage
+from io import BytesIO
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from operator import itemgetter
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.messages import HumanMessage, AIMessage
 import streamlit as st
-from operator import itemgetter
+from htmlTemplates import css,bot_template,user_template
 
 
-def get_vectorstore(text_chunks):
-    if not text_chunks:
-        raise ValueError("Nenhum chunk de texto disponível para indexar (text_chunks está vazio).")
-
-    
-    embeddings = HuggingFaceEmbeddings(model_name="multi-qa-mpnet-base-dot-v1")
-    vectorstore = FAISS.from_texts(texts=text_chunks,embedding=embeddings)
-    
-    #Para ter memória entre as execuções
-    #vectorstore.save_local("faiss_index_dir")
-    # e depois:
-    #FAISS.load_local("faiss_index_dir", embeddings, allow_dangerous_deserialization=True)
-
-    retriever = vectorstore.as_retriever(search_kwargs={'k':3})
-    
-    return vectorstore, retriever
 
 def format_docs(docs):
     return "\n\n".join(getattr(d, "page_content", str(d)) for d in docs)
@@ -115,7 +76,9 @@ def extract_elements(chunks):
     print(f'O número de imagens é: {len(images_b64)}')
 
     return tables, texts, images_b64
-            
+
+
+
 def ocr_from_images_base64(images_b64):
     image_texts = []
     for b64 in images_b64:
@@ -128,18 +91,6 @@ def ocr_from_images_base64(images_b64):
             print(f"❌ Erro ao processar imagem: {e}")
             image_texts.append(text.strip())
     return image_texts
-
-    
-def save_uploaded_file(up, base_dir="data/raw"):
-    os.makedirs(base_dir, exist_ok=True)
-    # cuidado com nomes repetidos; aqui uso o nome original:
-    path = os.path.join(base_dir, up.name)
-    with open(path, "wb") as f:
-        f.write(up.getbuffer())
-    return path  # << string
-
-
-
 
 
 def get_conversation_chain_image_rag(retriever):
