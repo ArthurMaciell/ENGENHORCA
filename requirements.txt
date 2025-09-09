@@ -21,9 +21,19 @@ langchain-openai
 langchain-groq
 huggingface_hub[hf_xet]
 sentence-transformers
+langchain_chroma
 
 # Vector DB and tokenizer
 chromadb
+tiktoken
+
+python-dotenv
+streamlit>=1.37
+langchain>=0.2
+langchain-openai
+langchain-community
+chromadb
+pypdf
 tiktoken
 
 -e .
