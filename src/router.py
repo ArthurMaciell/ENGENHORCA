@@ -21,16 +21,17 @@ def classify(question: str) -> Dict[str, str]:
     classifier = router_prompt | llm | JsonOutputParser(pydantic_object=RouteSchema)
     return classifier.invoke({"question": question})
 
-def route(question: str, tech_chain, prod_chain) -> str:
-    decision = classify(question)
+def route(question: str, tech_chain, prod_chain) -> dict:
+    decision = classify(question)  # {'route': 'tech', 'reason': '...'}
     r = decision["route"]
     if r == "tech":
-        return f"(rota: tech) — {decision['reason']}\n\n" + tech_chain.invoke(question)
+        ans = tech_chain.invoke(question)
+        return {"answer": ans, "sources": None, "route": r, "reason": decision["reason"]}
     if r == "product":
-        return f"(rota: product) — {decision['reason']}\n\n" + prod_chain.invoke(question)
+        ans = prod_chain.invoke(question)
+        return {"answer": ans, "sources": None, "route": r, "reason": decision["reason"]}
     tech_ans = tech_chain.invoke(question)
     prod_ans = prod_chain.invoke(question)
-    return (
-        f"(rota: both) — {decision['reason']}\n\n"
-        f"— TÉCNICO —\n{tech_ans}\n\n— PRODUTOS —\n{prod_ans}"
-    )
+    both = f"— TÉCNICO —\n{tech_ans}\n\n— PRODUTOS —\n{prod_ans}"
+    return {"answer": both, "sources": None, "route": r, "reason": decision["reason"]}
+
