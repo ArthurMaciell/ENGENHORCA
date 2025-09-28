@@ -114,16 +114,6 @@ streamlit run app.py
 - [ ] Deploy via **FastAPI** ou **LangServe**.  
 - [ ] CI/CD com GitHub Actions.  
 
----
-
-## 🧩 Como esse projeto cobre a vaga
-
-- ✔️ **LangChain** (já implementado)  
-- ✔️ **Arquitetura RAG** com bancos vetoriais  
-- ✔️ **Router multi-agente**  
-- ✔️ **Validação de dados com Pydantic**  
-- ✔️ **Python + boas práticas de modularização**  
-- 🔜 **FastAPI/LangGraph/LangSmith** (em andamento)  
 
 ---
 
