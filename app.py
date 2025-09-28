@@ -6,15 +6,15 @@ import streamlit as st
 from src.retrievers import get_tech_retriever, get_product_retriever
 from src.chains import build_tech_chain, build_product_chain
 
-st.set_page_config(page_title="RAG Router (Tech & Products)", page_icon="🧭", layout="wide")
-st.title("🧭 ENGENHORCA - RAG Router — Técnico & Produtos")
+st.set_page_config(page_title="ENGENHORCA (Tech & Products)", page_icon="🧭", layout="wide")
+st.title("🧭 ENGENHORCA — Técnico & Produtos")
 
 with st.sidebar:
     st.header("Configurações")
     k = st.slider("Top-K do retriever", 1, 10, 4)
     mode = st.radio("Modo de Roteamento", ["Auto (Router)", "Forçar Técnico", "Forçar Produto"])
     st.markdown("---")
-    st.caption("Coloque seus PDFs em `data/tech` e `data/products` e rode `python -m src.ingest`.")
+    st.caption("Coloque os PDFs em `data/tech` e `data/products` e rode `python -m src.ingest`.")
 
 # cria retrievers e chains (cacheia para não recarregar a cada interação)
 @st.cache_resource

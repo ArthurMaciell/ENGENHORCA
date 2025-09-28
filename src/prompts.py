@@ -12,7 +12,6 @@ PRODUCT_SYSTEM = (
     "Use apenas o contexto. Se faltar info, diga o que falta."
 )
 
-# ⬇️ Note as chaves duplas para imprimir { ... } literalmente
 ROUTER_SYSTEM = (
     "Você é um roteador. Escolha a melhor rota:\n"
     "- tech: normas, instalação, parâmetros técnicos, engenharia, troubleshooting, cálculos.\n"
