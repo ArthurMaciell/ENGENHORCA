@@ -23,16 +23,14 @@ Ele combina **RAG (Retrieval-Augmented Generation)**, **roteamento por agentes**
 ## 🏗 Arquitetura
 
 ```mermaid
-flowchart TD
-    U[Usuário] -->|Pergunta| A[Router]
-    A -->|Se técnico| T[Agente Técnico]
-    A -->|Se produto| P[Agente Produtos]
-    A -->|Ambos| T & P
-    T & P --> RAG[(Banco Vetorial)]
-    RAG --> G[LLM (ChatGroq)]
-    G --> O[Resposta Final]
-    O -->|Resposta + Fontes| U
-```
+flowchart LR
+U[User Query] --> RAG[RAG]
+RAG --> G[LLM (ChatGroq)]
+G --> A[Final Answer]
+
+RAG -- "retrieved context" --> G
+G -- "response" --> A
+
 
 ---
 
