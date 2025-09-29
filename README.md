@@ -20,20 +20,6 @@ Ele combina **RAG (Retrieval-Augmented Generation)**, **roteamento por agentes**
 
 ---
 
-## 🏗 Arquitetura
-
-```mermaid
-flowchart LR
-U[User Query] --> RAG[RAG]
-RAG --> G[LLM (ChatGroq)]
-G --> A[Final Answer]
-
-RAG -- "retrieved context" --> G
-G -- "response" --> A
-
-
----
-
 ## 📂 Estrutura do projeto
 
 ```
