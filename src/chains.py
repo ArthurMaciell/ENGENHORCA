@@ -21,18 +21,27 @@ def _format_docs(docs):
 
 def build_tech_chain(tech_retriever):
     llm = _get_llm()
-    return (
+    
+    chain = (
         {"question": RunnablePassthrough(), "context": tech_retriever | RunnableLambda(_format_docs)}
         | tech_prompt
         | llm
         | StrOutputParser()
     )
+    return chain.with_config(
+        tags=["ENGENHORCA", "chain:tech"],
+        metadata={"component": "tech_chain", "model": "llama-3.1-8b-instant"}
+    )
 
 def build_product_chain(product_retriever):
     llm = _get_llm()
-    return (
+    chain = (
         {"question": RunnablePassthrough(), "context": product_retriever | RunnableLambda(_format_docs)}
         | product_prompt
         | llm
         | StrOutputParser()
+    )
+    return chain.with_config(
+        tags=["ENGENHORCA", "chain:product"],
+        metadata={"component": "product_chain", "model": "llama-3.1-8b-instant"}
     )

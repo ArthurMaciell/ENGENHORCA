@@ -35,5 +35,6 @@ langchain-community
 chromadb
 pypdf
 tiktoken
+langsmith
 
 -e .

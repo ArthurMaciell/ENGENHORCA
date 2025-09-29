@@ -18,7 +18,10 @@ def _get_llm():
 
 def classify(question: str) -> Dict[str, str]:
     llm = _get_llm()
-    classifier = router_prompt | llm | JsonOutputParser(pydantic_object=RouteSchema)
+    classifier = (router_prompt | llm | JsonOutputParser(pydantic_object=RouteSchema)).with_config(
+        tags=["ENGENHORCA", "router"],
+        metadata={"component": "router", "target_schema": "RouteSchema"}
+    )
     return classifier.invoke({"question": question})
 
 def route(question: str, tech_chain, prod_chain) -> dict:
